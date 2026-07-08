@@ -179,7 +179,11 @@
     position:relative;
     transition:border-color .15s ease, background .15s ease;
     overflow:hidden;
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-user-drag:element;
   }
+  .card .label-edit-input{ user-select:text; -webkit-user-select:text; }
   .card:hover{ background:var(--surface-hover); border-color:#C3D2E0; }
   .card:hover .open-hint{ opacity:1; transform:translateX(0); }
 
@@ -212,7 +216,7 @@
     flex-shrink:0;
     overflow:hidden;
   }
-  .monogram-icon{ width:16px; height:16px; object-fit:contain; }
+  .monogram-icon{ width:16px; height:16px; object-fit:contain; -webkit-user-drag:none; }
   .domain-info{ min-width:0; }
   .domain-name{
     font-size:13.5px;
