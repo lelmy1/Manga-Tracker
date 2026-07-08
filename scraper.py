@@ -27,6 +27,7 @@ import sys
 import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 from playwright.sync_api import sync_playwright
 
@@ -120,7 +121,61 @@ def extract_mandarake_items(page):
     return unique
 
 
+def extract_yahoo_auctions_items(page):
+    """
+    Pulls listing cards out of a rendered Yahoo Auctions search-results page.
+
+    Each result is an `a.Product__titleLink` carrying the title and price as
+    data attributes (`data-auction-title`, `data-auction-price`), so no DOM
+    walking is needed to find them.
+    """
+    items = []
+    links = page.query_selector_all("a.Product__titleLink")
+
+    for link_el in links:
+        href = link_el.get_attribute("href") or ""
+        if not href:
+            continue
+        title = (link_el.get_attribute("data-auction-title") or link_el.inner_text() or "").strip()
+        if not title:
+            continue
+
+        price_raw = link_el.get_attribute("data-auction-price") or ""
+        price = f"{int(price_raw):,}円" if price_raw.isdigit() else ""
+
+        items.append({
+            "id": make_item_id(href, title),
+            "title": title,
+            "price": price,
+            "url": href,
+        })
+
+    # De-dupe by id, preserve order
+    seen_ids = set()
+    unique = []
+    for it in items:
+        if it["id"] not in seen_ids:
+            seen_ids.add(it["id"])
+            unique.append(it)
+    return unique
+
+
+# Maps a tracked page's hostname to the extractor that knows how to read its
+# markup. Add an entry here (and a matching extract_*_items function above)
+# whenever you start tracking a new site.
+EXTRACTORS_BY_HOST = {
+    "order.mandarake.co.jp": extract_mandarake_items,
+    "auctions.yahoo.co.jp": extract_yahoo_auctions_items,
+}
+
+
 def scrape_one(playwright, tracked, debug=False):
+    hostname = urlparse(tracked["url"]).hostname or ""
+    extractor = EXTRACTORS_BY_HOST.get(hostname)
+    if extractor is None:
+        print(f"  ! no extractor registered for host '{hostname}' — skipping")
+        return []
+
     browser = playwright.chromium.launch(headless=True)
     context = browser.new_context(user_agent=USER_AGENT, locale="en-US")
     page = context.new_page()
@@ -132,7 +187,7 @@ def scrape_one(playwright, tracked, debug=False):
             debug_path = BASE_DIR / f"debug_{tracked['id']}.html"
             debug_path.write_text(page.content(), encoding="utf-8")
             print(f"  (debug HTML saved to {debug_path.name})")
-        items = extract_mandarake_items(page)
+        items = extractor(page)
     except Exception as e:
         print(f"  ! error loading {tracked['url']}: {e}")
     finally:
