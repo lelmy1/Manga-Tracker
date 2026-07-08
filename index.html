@@ -52,22 +52,7 @@
     border-bottom:1px solid var(--border-soft);
   }
   .brand-row{ display:flex; align-items:center; gap:12px; }
-  .brand-mark{
-    width:34px; height:34px;
-    border-radius:8px;
-    background:linear-gradient(155deg, var(--accent), #1F5FA8);
-    position:relative;
-    flex-shrink:0;
-  }
-  .brand-mark::after{
-    content:'';
-    position:absolute;
-    top:50%; left:50%;
-    width:8px; height:8px;
-    background:var(--bg);
-    border-radius:50%;
-    transform:translate(-50%,-50%);
-  }
+  .brand-mark{ width:32px; height:32px; flex-shrink:0; }
   h1{ font-size:22px; font-weight:600; letter-spacing:-0.01em; }
   .subtitle{ color:var(--text-faint); font-size:13px; margin-top:2px; }
 
@@ -218,13 +203,16 @@
     width:28px; height:28px;
     border-radius:6px;
     background:var(--border-soft);
+    border:1px solid var(--border-soft);
     display:flex; align-items:center; justify-content:center;
     font-family:'Space Grotesk', sans-serif;
     font-size:12px;
     font-weight:600;
     color:var(--text-dim);
     flex-shrink:0;
+    overflow:hidden;
   }
+  .monogram-icon{ width:16px; height:16px; object-fit:contain; }
   .domain-info{ min-width:0; }
   .domain-name{
     font-size:13.5px;
@@ -464,10 +452,19 @@
   <header>
     <div>
       <div class="brand-row">
-        <div class="brand-mark"></div>
+        <svg class="brand-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Manga Tracker">
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#4A9FE8"/>
+              <stop offset="100%" stop-color="#1F5FA8"/>
+            </linearGradient>
+          </defs>
+          <rect width="32" height="32" rx="8" fill="url(#brandGrad)"/>
+          <path d="M9 22V10L16 17L23 10V22" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         <div>
           <h1>Manga Tracker</h1>
-          <div class="subtitle">Track series pages. Get pinged when a new chapter drops.</div>
+          <div class="subtitle">Track used manga listings. Get pinged when a new one goes up for sale.</div>
         </div>
       </div>
     </div>
@@ -519,7 +516,7 @@
   <div class="grid" id="grid"></div>
   <div class="empty" id="emptyState" style="display:none;">
     <div class="display">Nothing tracked yet</div>
-    <p>Paste a series page above to start watching it. Arm notifications on a card to get pinged the moment a new chapter shows up.</p>
+    <p>Paste a series page above to start watching it. Arm notifications on a card to get pinged the moment a new listing goes up for sale.</p>
   </div>
 
   <footer>
@@ -575,6 +572,23 @@
 
   function monogramOf(domain){
     return (domain||'?').slice(0,2).toUpperCase();
+  }
+
+  // Shows the tracked site's real favicon when it'll load, falling back to
+  // the plain text monogram (works for any domain, not just ones we know).
+  function buildMonogram(domain){
+    const mono = document.createElement('div');
+    mono.className = 'monogram';
+    const icon = document.createElement('img');
+    icon.className = 'monogram-icon';
+    icon.alt = '';
+    icon.src = 'https://www.google.com/s2/favicons?sz=64&domain=' + encodeURIComponent(domain || '');
+    icon.onerror = function(){
+      icon.remove();
+      mono.textContent = monogramOf(domain);
+    };
+    mono.appendChild(icon);
+    return mono;
   }
 
   function makeId(){
@@ -919,9 +933,7 @@
 
     const domainTag = document.createElement('div');
     domainTag.className = 'domain-tag';
-    const mono = document.createElement('div');
-    mono.className = 'monogram';
-    mono.textContent = monogramOf(item.domain);
+    const mono = buildMonogram(item.domain);
     const info = document.createElement('div');
     info.className = 'domain-info';
     const name = document.createElement('div');
