@@ -1,0 +1,39 @@
+name: Scrape listings
+
+on:
+  schedule:
+    # Every 15 minutes. GitHub may delay scheduled runs a few minutes during
+    # busy periods — that's normal, not a bug.
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab
+
+permissions:
+  contents: write   # needed so the workflow can commit listings.json back
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      - name: Run scraper
+        run: python scraper.py
+
+      - name: Commit updated listings
+        run: |
+          git config user.name "manga-tracker-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add listings.json seen_items.json
+          git diff --cached --quiet || git commit -m "Update listings [skip ci]"
+          git push
