@@ -52,7 +52,7 @@
     border-bottom:1px solid var(--border-soft);
   }
   .brand-row{ display:flex; align-items:center; gap:12px; }
-  .brand-mark{ width:32px; height:32px; flex-shrink:0; }
+  .brand-mark{ width:46px; height:46px; flex-shrink:0; }
   h1{ font-size:22px; font-weight:600; letter-spacing:-0.01em; }
   .subtitle{ color:var(--text-faint); font-size:13px; margin-top:2px; }
 
@@ -304,7 +304,7 @@
     transform:translateX(-4px);
     transition:all .15s ease;
   }
-  .remove-btn{
+  .remove-btn, .edit-btn{
     background:none;
     border:none;
     color:var(--text-faint);
@@ -316,6 +316,25 @@
     transition:color .15s ease;
   }
   .remove-btn:hover{ color:var(--red); }
+  .edit-btn{ font-size:12.5px; }
+  .edit-btn:hover{ color:var(--accent); }
+
+  .label-edit-input{
+    font-family:'Inter', sans-serif;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--text);
+    background:var(--bg);
+    border:1px solid var(--accent);
+    border-radius:4px;
+    padding:2px 6px;
+    width:100%;
+    max-width:180px;
+    outline:none;
+  }
+
+  .card.dragging{ opacity:0.4; }
+  .card.drag-over{ border-color:var(--accent); background:var(--surface-hover); }
 
   .new-badge{
     position:absolute;
@@ -501,7 +520,7 @@
   </div>
 
   <div class="toolbar">
-    <div class="section-label" id="gridLabel">SERIES</div>
+    <div class="section-label" id="gridLabel">SEARCHES</div>
     <div style="display:flex; align-items:center; gap:14px;">
       <div class="status-line" style="font-size:11px;">
         <div class="dot armed" style="animation-duration:2.4s;"></div>
@@ -535,6 +554,8 @@
   let listingsData = {}; // contents of listings.json, keyed by tracked id
   let notifPermission = (typeof Notification !== 'undefined') ? Notification.permission : 'unsupported';
   let pendingSync = false; // true if local changes haven't been exported to config.json yet
+  let editingItemId = null; // id of the card currently mid-rename, if any
+  let draggedItemId = null; // id of the card currently being dragged, if any
 
   const grid = document.getElementById('grid');
   const emptyState = document.getElementById('emptyState');
@@ -546,7 +567,6 @@
   const statTotal = document.getElementById('statTotal');
   const statArmed = document.getElementById('statArmed');
   const toastHost = document.getElementById('toastHost');
-  const addHint = document.getElementById('addHint');
   const githubBtn = document.getElementById('githubBtn');
   const ghPanel = document.getElementById('ghPanel');
   const ghTokenInput = document.getElementById('ghTokenInput');
@@ -699,15 +719,45 @@
     render();
   }
 
+  function persistItemsChange(message){
+    if(isGithubConnected()){
+      syncConfig(message);
+    } else {
+      pendingSync = true;
+      render();
+    }
+  }
+
+  function commitLabelEdit(item, newLabelRaw){
+    if(editingItemId !== item.id) return; // already committed or cancelled
+    editingItemId = null;
+    const newLabel = newLabelRaw.trim();
+    if(newLabel && newLabel !== item.label){
+      item.label = newLabel;
+      render();
+      persistItemsChange('Rename "' + newLabel + '" in Manga Tracker');
+    } else {
+      render();
+    }
+  }
+
+  function reorderItems(sourceId, targetId){
+    const fromIdx = items.findIndex(i => i.id === sourceId);
+    const toIdx = items.findIndex(i => i.id === targetId);
+    if(fromIdx === -1 || toIdx === -1 || fromIdx === toIdx) return;
+    const [moved] = items.splice(fromIdx, 1);
+    items.splice(toIdx, 0, moved);
+    render();
+    persistItemsChange('Reorder tracked series in Manga Tracker');
+  }
+
   function updateGithubBtn(){
     if(isGithubConnected()){
       githubBtn.textContent = 'GitHub connected';
       githubBtn.classList.add('on');
-      addHint.textContent = 'Changes push straight to config.json on GitHub — no manual download/upload needed.';
     } else {
       githubBtn.textContent = 'Connect GitHub';
       githubBtn.classList.remove('on');
-      addHint.textContent = 'New links appear here right away, but the scraper only checks what\'s in your repo\'s config.json — download and push an update after adding or removing something.';
     }
   }
 
@@ -916,9 +966,36 @@
     const card = document.createElement('div');
     card.className = 'card' + (item.flagged ? ' new-flag' : '');
     card.addEventListener('click', (e)=>{
-      if(e.target.closest('.toggle') || e.target.closest('.remove-btn')) return;
+      if(e.target.closest('.toggle') || e.target.closest('.remove-btn') || e.target.closest('.edit-btn') || e.target.closest('.label-edit-input')) return;
       dismissNewItems(item);
       window.open(item.url, '_blank', 'noopener');
+    });
+
+    card.draggable = true;
+    card.dataset.id = item.id;
+    card.addEventListener('dragstart', (e)=>{
+      draggedItemId = item.id;
+      card.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+      try{ e.dataTransfer.setData('text/plain', item.id); }catch(err){}
+    });
+    card.addEventListener('dragend', ()=>{
+      card.classList.remove('dragging');
+      draggedItemId = null;
+    });
+    card.addEventListener('dragover', (e)=>{
+      if(!draggedItemId || draggedItemId === item.id) return;
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      card.classList.add('drag-over');
+    });
+    card.addEventListener('dragleave', ()=>{ card.classList.remove('drag-over'); });
+    card.addEventListener('drop', (e)=>{
+      e.preventDefault();
+      card.classList.remove('drag-over');
+      const sourceId = draggedItemId || e.dataTransfer.getData('text/plain');
+      if(!sourceId || sourceId === item.id) return;
+      reorderItems(sourceId, item.id);
     });
 
     if(item.flagged){
@@ -938,7 +1015,23 @@
     info.className = 'domain-info';
     const name = document.createElement('div');
     name.className = 'domain-name';
-    name.textContent = item.label || item.domain;
+    if(editingItemId === item.id){
+      const labelInputEl = document.createElement('input');
+      labelInputEl.type = 'text';
+      labelInputEl.className = 'label-edit-input';
+      labelInputEl.value = item.label || item.domain;
+      labelInputEl.addEventListener('click', e => e.stopPropagation());
+      labelInputEl.addEventListener('keydown', e => {
+        e.stopPropagation();
+        if(e.key === 'Enter'){ commitLabelEdit(item, labelInputEl.value); }
+        else if(e.key === 'Escape'){ editingItemId = null; render(); }
+      });
+      labelInputEl.addEventListener('blur', () => commitLabelEdit(item, labelInputEl.value));
+      name.appendChild(labelInputEl);
+      setTimeout(() => { labelInputEl.focus(); labelInputEl.select(); }, 0);
+    } else {
+      name.textContent = item.label || item.domain;
+    }
     const urlLine = document.createElement('div');
     urlLine.className = 'url-line mono';
     urlLine.textContent = item.url;
@@ -990,6 +1083,15 @@
     const hint = document.createElement('div');
     hint.className = 'open-hint';
     hint.textContent = 'click to open ↗';
+    const editBtn = document.createElement('button');
+    editBtn.className = 'edit-btn';
+    editBtn.textContent = '✎';
+    editBtn.title = 'Rename';
+    editBtn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      editingItemId = item.id;
+      render();
+    });
     const removeBtn = document.createElement('button');
     removeBtn.className = 'remove-btn';
     removeBtn.textContent = '✕';
@@ -998,14 +1100,10 @@
       e.stopPropagation();
       items = items.filter(i => i.id !== item.id);
       render();
-      if(isGithubConnected()){
-        syncConfig('Remove ' + (item.label || item.domain) + ' from Manga Tracker');
-      } else {
-        pendingSync = true;
-        render();
-      }
+      persistItemsChange('Remove ' + (item.label || item.domain) + ' from Manga Tracker');
     });
     actions.appendChild(hint);
+    actions.appendChild(editBtn);
     actions.appendChild(removeBtn);
 
     metaRow.appendChild(statusLine);
@@ -1156,8 +1254,10 @@
   });
 
   // Poll listings.json regularly so we notice updates from the scraper
-  // shortly after it runs, without needing to reload the page.
-  setInterval(()=>{ refresh(false); }, 20000);
+  // shortly after it runs, without needing to reload the page. Skipped
+  // while a rename is in progress so a background refresh can't yank the
+  // input out from under an in-progress edit.
+  setInterval(()=>{ if(!editingItemId) refresh(false); }, 20000);
 
   updateNotifBtn();
   updateGithubBtn();
