@@ -104,7 +104,7 @@
     gap:10px;
     flex-wrap:wrap;
   }
-  .add-row input[type=text]{
+  .add-row input[type=text], .add-row input[type=password]{
     flex:1;
     min-width:200px;
     background:var(--bg);
@@ -139,6 +139,14 @@
   .add-btn:hover{ filter:brightness(1.08); }
   .add-btn:active{ transform:scale(0.98); }
   .add-hint{ font-size:11.5px; color:var(--text-faint); margin-top:10px; }
+
+  .gh-panel{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:18px;
+    margin-bottom:20px;
+  }
 
   /* Toolbar */
   .toolbar{
@@ -469,8 +477,22 @@
         <div class="stat"><div class="num mono" id="statArmed">0</div><div class="lbl">armed</div></div>
       </div>
       <button class="notif-btn" id="notifBtn">Enable notifications</button>
+      <button class="notif-btn" id="githubBtn">Connect GitHub</button>
     </div>
   </header>
+
+  <div class="gh-panel" id="ghPanel" style="display:none;">
+    <div class="add-row">
+      <input type="password" id="ghTokenInput" placeholder="GitHub personal access token" />
+    </div>
+    <div class="add-row" style="margin-top:10px;">
+      <input type="text" id="ghOwnerInput" placeholder="Repo owner" style="flex:0 0 160px;" />
+      <input type="text" id="ghRepoInput" placeholder="Repo name" style="flex:0 0 200px;" />
+      <button class="add-btn" id="ghSaveBtn">Save</button>
+      <button class="notif-btn" id="ghDisconnectBtn" style="display:none;">Disconnect</button>
+    </div>
+    <div class="add-hint">Stored only in this browser's localStorage and sent straight to api.github.com — never touches a server of ours. Use a fine-grained token (github.com/settings/personal-access-tokens) scoped to just this repo with "Contents: Read and write" permission.</div>
+  </div>
 
   <div class="add-panel">
     <div class="add-row">
@@ -478,7 +500,7 @@
       <input type="text" id="labelInput" placeholder="Series name (optional)" />
       <button class="add-btn" id="addBtn">Add to watch</button>
     </div>
-    <div class="add-hint">New links appear here right away, but the scraper only checks what's in your repo's config.json — download and push an update after adding or removing something.</div>
+    <div class="add-hint" id="addHint">New links appear here right away, but the scraper only checks what's in your repo's config.json — download and push an update after adding or removing something.</div>
   </div>
 
   <div class="toolbar">
@@ -527,6 +549,14 @@
   const statTotal = document.getElementById('statTotal');
   const statArmed = document.getElementById('statArmed');
   const toastHost = document.getElementById('toastHost');
+  const addHint = document.getElementById('addHint');
+  const githubBtn = document.getElementById('githubBtn');
+  const ghPanel = document.getElementById('ghPanel');
+  const ghTokenInput = document.getElementById('ghTokenInput');
+  const ghOwnerInput = document.getElementById('ghOwnerInput');
+  const ghRepoInput = document.getElementById('ghRepoInput');
+  const ghSaveBtn = document.getElementById('ghSaveBtn');
+  const ghDisconnectBtn = document.getElementById('ghDisconnectBtn');
 
   function toast(msg, type){
     const el = document.createElement('div');
@@ -560,6 +590,147 @@
     try{ localStorage.setItem('manga-tracker-state', JSON.stringify(state)); }catch(e){}
   }
 
+  // ---- GitHub connection (optional - lets Add/Remove push straight to
+  // config.json via the Contents API instead of a manual download/upload) ----
+  function loadGithubConfig(){
+    return loadLocalState().github || null;
+  }
+  function saveGithubConfig(cfg){
+    const state = loadLocalState();
+    state.github = cfg;
+    saveLocalState(state);
+  }
+  function clearGithubConfig(){
+    const state = loadLocalState();
+    delete state.github;
+    saveLocalState(state);
+  }
+  function isGithubConnected(){
+    const gh = loadGithubConfig();
+    return !!(gh && gh.token && gh.owner && gh.repo);
+  }
+
+  // GitHub Pages serves at https://{owner}.github.io/{repo}/... - use that
+  // to pre-fill the connect form so most people just need to paste a token.
+  function detectRepoFromLocation(){
+    const m = location.hostname.match(/^([^.]+)\.github\.io$/i);
+    if(!m) return null;
+    const repo = location.pathname.split('/').filter(Boolean)[0];
+    if(!repo) return null;
+    return { owner: m[1], repo };
+  }
+
+  async function commitConfigToGithub(configArray, message){
+    const gh = loadGithubConfig();
+    if(!gh || !gh.token || !gh.owner || !gh.repo) return { ok:false, reason:'GitHub isn\'t connected' };
+
+    const apiUrl = 'https://api.github.com/repos/' + gh.owner + '/' + gh.repo + '/contents/config.json';
+    const headers = { 'Authorization':'Bearer ' + gh.token, 'Accept':'application/vnd.github+json' };
+
+    let sha;
+    try{
+      const getRes = await fetch(apiUrl, { headers });
+      if(getRes.ok){
+        sha = (await getRes.json()).sha;
+      } else if(getRes.status !== 404){
+        const err = await getRes.json().catch(()=>({}));
+        return { ok:false, reason: err.message || ('GitHub rejected the read (' + getRes.status + ')') };
+      }
+    }catch(e){
+      return { ok:false, reason:'couldn\'t reach api.github.com' };
+    }
+
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(configArray, null, 2))));
+    const body = { message, content };
+    if(sha) body.sha = sha;
+
+    try{
+      const putRes = await fetch(apiUrl, {
+        method:'PUT',
+        headers: Object.assign({'Content-Type':'application/json'}, headers),
+        body: JSON.stringify(body)
+      });
+      if(!putRes.ok){
+        const err = await putRes.json().catch(()=>({}));
+        return { ok:false, reason: err.message || ('GitHub rejected the commit (' + putRes.status + ')') };
+      }
+      return { ok:true };
+    }catch(e){
+      return { ok:false, reason:'couldn\'t reach api.github.com' };
+    }
+  }
+
+  // Pushes the current item list to config.json on GitHub. Falls back to
+  // the manual download/upload banner (via pendingSync) if not connected
+  // or if the push fails for any reason.
+  async function syncConfig(message){
+    if(!isGithubConnected()){
+      pendingSync = true;
+      render();
+      return;
+    }
+    pendingSync = true;
+    render();
+    const config = items.map(i => ({ id: i.id, label: i.label, url: i.url }));
+    const result = await commitConfigToGithub(config, message);
+    if(result.ok){
+      // Leave _localOnly as-is - the merge in refresh() will clear it once
+      // config.json (as served by GitHub Pages) actually reflects this
+      // commit, which can lag a push by 30-45s.
+      pendingSync = false;
+      toast('Pushed to config.json on GitHub.', 'info');
+    } else {
+      toast('Couldn\'t push to GitHub (' + result.reason + ') — use the download button below instead.', 'info');
+    }
+    render();
+  }
+
+  function updateGithubBtn(){
+    if(isGithubConnected()){
+      githubBtn.textContent = 'GitHub connected';
+      githubBtn.classList.add('on');
+      addHint.textContent = 'Changes push straight to config.json on GitHub — no manual download/upload needed.';
+    } else {
+      githubBtn.textContent = 'Connect GitHub';
+      githubBtn.classList.remove('on');
+      addHint.textContent = 'New links appear here right away, but the scraper only checks what\'s in your repo\'s config.json — download and push an update after adding or removing something.';
+    }
+  }
+
+  githubBtn.addEventListener('click', ()=>{
+    const gh = loadGithubConfig();
+    const detected = detectRepoFromLocation();
+    ghOwnerInput.value = (gh && gh.owner) || (detected && detected.owner) || '';
+    ghRepoInput.value = (gh && gh.repo) || (detected && detected.repo) || '';
+    ghTokenInput.value = '';
+    ghTokenInput.placeholder = (gh && gh.token) ? 'Token saved — enter a new one to replace it' : 'GitHub personal access token';
+    ghDisconnectBtn.style.display = (gh && gh.token) ? 'inline-block' : 'none';
+    ghPanel.style.display = ghPanel.style.display === 'none' ? 'block' : 'none';
+  });
+
+  ghSaveBtn.addEventListener('click', ()=>{
+    const owner = ghOwnerInput.value.trim();
+    const repo = ghRepoInput.value.trim();
+    const typedToken = ghTokenInput.value.trim();
+    const existing = loadGithubConfig();
+    const token = typedToken || (existing && existing.token) || '';
+    if(!owner || !repo || !token){
+      toast('Need a token, owner, and repo name to connect.', 'info');
+      return;
+    }
+    saveGithubConfig({ token, owner, repo });
+    ghPanel.style.display = 'none';
+    updateGithubBtn();
+    toast('GitHub connected — changes will now push straight to config.json.', 'info');
+  });
+
+  ghDisconnectBtn.addEventListener('click', ()=>{
+    clearGithubConfig();
+    ghPanel.style.display = 'none';
+    updateGithubBtn();
+    toast('GitHub disconnected. Changes go back to manual download/upload.', 'info');
+  });
+
   // ---- Loading config.json + listings.json from disk ----
   async function loadConfig(){
     try{
@@ -591,9 +762,14 @@
         toast('Couldn\'t read config.json from this site yet — check that GitHub Pages has deployed.', 'info');
       }
     } else {
-      // Merge: config.json is authoritative for which series exist (once synced),
-      // localState carries the notify toggle and locally-added, not-yet-synced items.
-      const localOnly = items.filter(i => i._localOnly);
+      // Merge: config.json is authoritative for which series exist. A
+      // locally-added item stays protected from being dropped until its id
+      // actually shows up in a freshly-fetched config.json - that covers
+      // the propagation delay between a successful GitHub API commit and
+      // GitHub Pages finishing its redeploy, not just the manual
+      // download/upload path.
+      const configIds = new Set(config.map(c => c.id));
+      const localOnly = items.filter(i => i._localOnly && !configIds.has(i.id));
       const fromConfig = config.map(c => ({
         id: c.id,
         url: c.url,
@@ -715,7 +891,8 @@
     a.download = 'config.json';
     a.click();
     URL.revokeObjectURL(a.href);
-    items.forEach(i => i._localOnly = false);
+    // Leave _localOnly as-is - the merge in refresh() will clear it once
+    // config.json (as served by GitHub Pages) actually reflects the upload.
     pendingSync = false;
     toast('Downloaded config.json — upload it to your GitHub repo (replacing the old one) and commit.', 'info');
     render();
@@ -808,8 +985,13 @@
     removeBtn.addEventListener('click', (e)=>{
       e.stopPropagation();
       items = items.filter(i => i.id !== item.id);
-      pendingSync = true;
       render();
+      if(isGithubConnected()){
+        syncConfig('Remove ' + (item.label || item.domain) + ' from Manga Tracker');
+      } else {
+        pendingSync = true;
+        render();
+      }
     });
     actions.appendChild(hint);
     actions.appendChild(removeBtn);
@@ -904,11 +1086,18 @@
       _localOnly: true
     };
     items.unshift(item);
-    pendingSync = true;
     urlInput.value = '';
     labelInput.value = '';
     render();
-    toast('Added ' + (item.label || item.domain) + ' — download config.json and push it to your repo to activate tracking.', 'info');
+
+    if(isGithubConnected()){
+      toast('Added ' + (item.label || item.domain) + ' — pushing to GitHub…', 'info');
+      syncConfig('Add ' + (item.label || item.domain) + ' to Manga Tracker');
+    } else {
+      pendingSync = true;
+      render();
+      toast('Added ' + (item.label || item.domain) + ' — download config.json and push it to your repo to activate tracking.', 'info');
+    }
   }
 
   notifBtn.addEventListener('click', async ()=>{
@@ -959,6 +1148,7 @@
   setInterval(()=>{ refresh(false); }, 20000);
 
   updateNotifBtn();
+  updateGithubBtn();
   refresh(true);
 })();
 </script>
