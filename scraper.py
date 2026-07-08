@@ -168,6 +168,14 @@ EXTRACTORS_BY_HOST = {
     "auctions.yahoo.co.jp": extract_yahoo_auctions_items,
 }
 
+# order.mandarake.co.jp 302-redirects cold requests (no session cookie) to
+# the plain homepage instead of serving results - visiting this page first
+# picks up the tr_mndrk_user cookie it requires, same as a real visitor
+# clicking through from the site's own language selector would.
+WARMUP_URL_BY_HOST = {
+    "order.mandarake.co.jp": "https://earth.mandarake.co.jp/",
+}
+
 
 def scrape_one(playwright, tracked, debug=False):
     hostname = urlparse(tracked["url"]).hostname or ""
@@ -181,6 +189,9 @@ def scrape_one(playwright, tracked, debug=False):
     page = context.new_page()
     items = []
     try:
+        warmup_url = WARMUP_URL_BY_HOST.get(hostname)
+        if warmup_url:
+            page.goto(warmup_url, wait_until="networkidle", timeout=30000)
         page.goto(tracked["url"], wait_until="networkidle", timeout=30000)
         page.wait_for_timeout(1500)  # let lazy-loaded content settle
         if debug:
