@@ -1,5 +1,10 @@
 [
   {
+    "id": "mdrk-wsj-001",
+    "label": "WSJ Mandarake",
+    "url": "https://order.mandarake.co.jp/order/listPage/list?page=1&keyword=weekly%20shonen%20jump&lang=en"
+  },
+  {
     "id": "mt-mrcnoupte5ne",
     "label": "WSJ",
     "url": "https://auctions.yahoo.co.jp/search/search?va=shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump&x=0&y=0"
@@ -33,10 +38,5 @@
     "id": "mt-mrcf3iki8yk5",
     "label": "Fool night",
     "url": "https://auctions.yahoo.co.jp/search/search?user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=%E3%83%95%E3%83%BC%E3%83%AB%E3%83%8A%E3%82%A4%E3%83%88&x=0&y=0"
-  },
-  {
-    "id": "mdrk-wsj-001",
-    "label": "WSJ Mandarake",
-    "url": "https://order.mandarake.co.jp/order/listPage/list?page=1&keyword=weekly%20shonen%20jump&lang=en"
   }
 ]
