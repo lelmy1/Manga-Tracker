@@ -177,7 +177,7 @@
     padding:16px;
     cursor:pointer;
     position:relative;
-    transition:border-color .15s ease, background .15s ease;
+    transition:border-color .15s ease, background .15s ease, transform .18s cubic-bezier(0.2,0,0.2,1), box-shadow .18s ease;
     overflow:hidden;
     user-select:none;
     -webkit-user-select:none;
@@ -337,8 +337,18 @@
     outline:none;
   }
 
-  .card.dragging{ opacity:0.4; }
-  .card.drag-over{ border-color:var(--accent); background:var(--surface-hover); }
+  .card.dragging{
+    opacity:0.55;
+    transform:scale(0.96);
+    box-shadow:0 10px 24px rgba(27,36,48,0.18);
+    cursor:grabbing;
+  }
+  .card.drag-over{
+    border-color:var(--accent);
+    background:var(--surface-hover);
+    transform:scale(1.015);
+    box-shadow:0 4px 14px rgba(47,128,214,0.15);
+  }
 
   .new-badge{
     position:absolute;
@@ -744,14 +754,45 @@
     }
   }
 
+  // FLIP technique: record where every card currently sits, let the
+  // mutation + re-render happen (which snaps them straight to their new
+  // spots), then transform each one back to where it *was* and
+  // transition that away to nothing - so they visually glide into place
+  // instead of popping. Safe to call around any items[]-reordering
+  // mutation, including ones that re-render more than once internally.
+  function withFlipAnimation(mutate){
+    const firstRects = new Map();
+    grid.querySelectorAll('.card').forEach(c => firstRects.set(c.dataset.id, c.getBoundingClientRect()));
+
+    mutate();
+
+    grid.querySelectorAll('.card').forEach(c => {
+      const first = firstRects.get(c.dataset.id);
+      if(!first) return;
+      const last = c.getBoundingClientRect();
+      const dx = first.left - last.left;
+      const dy = first.top - last.top;
+      if(!dx && !dy) return;
+      c.style.transition = 'none';
+      c.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+      c.getBoundingClientRect(); // force reflow so the transform above actually applies before we transition away from it
+      requestAnimationFrame(()=>{
+        c.style.transition = 'transform 220ms cubic-bezier(0.2,0,0.2,1)';
+        c.style.transform = '';
+      });
+    });
+  }
+
   function reorderItems(sourceId, targetId){
     const fromIdx = items.findIndex(i => i.id === sourceId);
     const toIdx = items.findIndex(i => i.id === targetId);
     if(fromIdx === -1 || toIdx === -1 || fromIdx === toIdx) return;
-    const [moved] = items.splice(fromIdx, 1);
-    items.splice(toIdx, 0, moved);
-    render();
-    persistItemsChange('Reorder tracked series in Manga Tracker');
+    withFlipAnimation(()=>{
+      const [moved] = items.splice(fromIdx, 1);
+      items.splice(toIdx, 0, moved);
+      render();
+      persistItemsChange('Reorder tracked series in Manga Tracker');
+    });
   }
 
   function updateGithubBtn(){
