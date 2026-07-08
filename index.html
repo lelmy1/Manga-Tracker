@@ -224,7 +224,9 @@
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+    max-width:100%;
   }
+  .card.new-flag .domain-name{ max-width:calc(100% - 56px); }
   .url-line{
     font-size:11px;
     color:var(--text-faint);
@@ -332,6 +334,59 @@
     border-radius:4px;
     font-family:'IBM Plex Mono', monospace;
   }
+
+  /* Item preview list (shown inside a card when it has new listings) */
+  .item-preview{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid var(--border-soft);
+  }
+  .preview-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:5px 8px;
+    margin:0 -8px;
+    border-radius:7px;
+    text-decoration:none;
+    color:inherit;
+    transition:background .15s ease;
+  }
+  .preview-row:hover{ background:rgba(232,163,61,0.09); }
+  .preview-thumb{
+    width:34px; height:34px;
+    border-radius:6px;
+    background-color:var(--border-soft);
+    background-size:cover;
+    background-position:center;
+    border:1px solid var(--border-soft);
+    flex-shrink:0;
+  }
+  .preview-text{ min-width:0; flex:1; }
+  .preview-title{
+    font-size:12px;
+    line-height:1.35;
+    color:var(--text);
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .preview-price{
+    font-size:11px;
+    color:var(--amber);
+    margin-top:2px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .preview-more{
+    font-size:11px;
+    color:var(--text-faint);
+    padding:5px 8px;
+  }
+  .preview-more:hover{ color:var(--text-dim); }
 
   /* Empty state */
   .empty{
@@ -570,8 +625,10 @@
       (data.items || []).forEach(it => allKnownIds.add(it.id));
       const newItems = (data.items || []).filter(it => it.isNew);
       item._newItemIds = newItems.map(it => it.id);
-      item.newCount = newItems.filter(it => !dismissedIds.has(it.id)).length;
+      const undismissed = newItems.filter(it => !dismissedIds.has(it.id));
+      item.newCount = undismissed.length;
       item.flagged = item.newCount > 0;
+      item._previewItems = undismissed.slice(0, 3);
 
       if(item.notifications){
         const unnotified = newItems.filter(it => !notifiedIds.has(it.id));
@@ -762,7 +819,60 @@
 
     card.appendChild(top);
     card.appendChild(metaRow);
+    if(item.flagged && item._previewItems && item._previewItems.length){
+      card.appendChild(buildPreviewList(item));
+    }
     return card;
+  }
+
+  function buildPreviewList(item){
+    const wrap = document.createElement('div');
+    wrap.className = 'item-preview';
+
+    item._previewItems.forEach(listing => {
+      const row = document.createElement('a');
+      row.className = 'preview-row';
+      row.href = listing.url;
+      row.target = '_blank';
+      row.rel = 'noopener';
+      row.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        dismissNewItems(item);
+      });
+
+      const thumb = document.createElement('div');
+      thumb.className = 'preview-thumb';
+      if(listing.image){
+        thumb.style.backgroundImage = 'url(' + JSON.stringify(listing.image) + ')';
+      }
+
+      const text = document.createElement('div');
+      text.className = 'preview-text';
+      const title = document.createElement('div');
+      title.className = 'preview-title';
+      title.textContent = listing.title;
+      text.appendChild(title);
+      if(listing.price){
+        const price = document.createElement('div');
+        price.className = 'preview-price';
+        price.textContent = listing.price;
+        text.appendChild(price);
+      }
+
+      row.appendChild(thumb);
+      row.appendChild(text);
+      wrap.appendChild(row);
+    });
+
+    const remaining = item.newCount - item._previewItems.length;
+    if(remaining > 0){
+      const more = document.createElement('div');
+      more.className = 'preview-more';
+      more.textContent = '+' + remaining + ' more →';
+      wrap.appendChild(more);
+    }
+
+    return wrap;
   }
 
   function timeAgo(ts){

@@ -74,51 +74,64 @@ def extract_mandarake_items(page):
     with --debug and check debug_<id>.html to see what actually loaded,
     then adjust the selectors below.
     """
-    items = []
+    # Each result renders as two separate <a> tags sharing the same href -
+    # one wrapping the thumbnail <img>, one wrapping the title text - so
+    # group by href to merge them into a single item with both.
+    entries = {}
+    order = []
     links = page.query_selector_all("a[href*='/order/detailPage/item']")
 
     for link_el in links:
         href = link_el.get_attribute("href") or ""
         if not href:
             continue
+        full_url = href if href.startswith("http") else "https://order.mandarake.co.jp" + href
+
+        entry = entries.get(full_url)
+        if entry is None:
+            entry = {"title": "", "image": "", "price": ""}
+            entries[full_url] = entry
+            order.append(full_url)
+
         title = (link_el.get_attribute("title") or link_el.inner_text() or "").strip()
-        if not title:
-            # Sometimes the title sits in a child element instead
-            title_el = link_el.query_selector("img")
-            if title_el:
-                title = (title_el.get_attribute("alt") or "").strip()
-        if not title:
-            continue
+        if title and not entry["title"]:
+            entry["title"] = title
+
+        img_el = link_el.query_selector("img")
+        if img_el and not entry["image"]:
+            src = img_el.get_attribute("src") or ""
+            if src:
+                entry["image"] = src
+            elif not entry["title"]:
+                # Sometimes the title only exists as the thumbnail's alt text
+                entry["title"] = (img_el.get_attribute("alt") or "").strip()
 
         # Look for a price in the surrounding card
-        price = ""
-        container = link_el
-        for _ in range(4):  # walk up a few ancestor levels looking for a price
-            container = container.evaluate_handle("el => el.parentElement")
-            container = container.as_element()
-            if not container:
-                break
-            price_el = container.query_selector("[class*='price']")
-            if price_el:
-                price = price_el.inner_text().strip()
-                break
+        if not entry["price"]:
+            container = link_el
+            for _ in range(4):  # walk up a few ancestor levels looking for a price
+                container = container.evaluate_handle("el => el.parentElement")
+                container = container.as_element()
+                if not container:
+                    break
+                price_el = container.query_selector("[class*='price']")
+                if price_el:
+                    entry["price"] = price_el.inner_text().strip()
+                    break
 
-        full_url = href if href.startswith("http") else "https://order.mandarake.co.jp" + href
+    items = []
+    for full_url in order:
+        entry = entries[full_url]
+        if not entry["title"]:
+            continue
         items.append({
-            "id": make_item_id(full_url, title),
-            "title": title,
-            "price": price,
+            "id": make_item_id(full_url, entry["title"]),
+            "title": entry["title"],
+            "price": entry["price"],
+            "image": entry["image"],
             "url": full_url,
         })
-
-    # De-dupe by id, preserve order
-    seen_ids = set()
-    unique = []
-    for it in items:
-        if it["id"] not in seen_ids:
-            seen_ids.add(it["id"])
-            unique.append(it)
-    return unique
+    return items
 
 
 def extract_yahoo_auctions_items(page):
@@ -142,11 +155,13 @@ def extract_yahoo_auctions_items(page):
 
         price_raw = link_el.get_attribute("data-auction-price") or ""
         price = f"{int(price_raw):,}円" if price_raw.isdigit() else ""
+        image = link_el.get_attribute("data-auction-img") or ""
 
         items.append({
             "id": make_item_id(href, title),
             "title": title,
             "price": price,
+            "image": image,
             "url": href,
         })
 
