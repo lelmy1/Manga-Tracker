@@ -557,6 +557,8 @@
   function applyListings(){
     const localState = loadLocalState();
     const notifiedIds = new Set(localState.notifiedItemIds || []);
+    const dismissedIds = new Set(localState.dismissedItemIds || []);
+    const allKnownIds = new Set();
     let notifiedSomething = false;
 
     items.forEach(item => {
@@ -565,8 +567,10 @@
       item.lastChecked = data.lastChecked ? new Date(data.lastChecked).getTime() : null;
       item.totalCount = data.items ? data.items.length : 0;
       item.error = !!data.error;
+      (data.items || []).forEach(it => allKnownIds.add(it.id));
       const newItems = (data.items || []).filter(it => it.isNew);
-      item.newCount = newItems.length;
+      item._newItemIds = newItems.map(it => it.id);
+      item.newCount = newItems.filter(it => !dismissedIds.has(it.id)).length;
       item.flagged = item.newCount > 0;
 
       if(item.notifications){
@@ -579,10 +583,31 @@
       }
     });
 
-    if(notifiedSomething){
-      localState.notifiedItemIds = Array.from(notifiedIds);
+    // Garbage-collect ids that have rolled off listings.json (the scraper
+    // only keeps NEW_WINDOW_HOURS worth of "new" history) so these sets
+    // don't grow forever.
+    const prunedNotified = Array.from(notifiedIds).filter(id => allKnownIds.has(id));
+    const prunedDismissed = Array.from(dismissedIds).filter(id => allKnownIds.has(id));
+    if(notifiedSomething || prunedNotified.length !== notifiedIds.size || prunedDismissed.length !== dismissedIds.size){
+      localState.notifiedItemIds = prunedNotified;
+      localState.dismissedItemIds = prunedDismissed;
       saveLocalState(localState);
     }
+  }
+
+  // Marks an item's currently-new listings as seen so the "new" badge
+  // clears immediately on click, instead of waiting for the scraper's
+  // NEW_WINDOW_HOURS to elapse server-side.
+  function dismissNewItems(item){
+    if(!item._newItemIds || item._newItemIds.length === 0) return;
+    const localState = loadLocalState();
+    const dismissedIds = new Set(localState.dismissedItemIds || []);
+    item._newItemIds.forEach(id => dismissedIds.add(id));
+    localState.dismissedItemIds = Array.from(dismissedIds);
+    saveLocalState(localState);
+    item.newCount = 0;
+    item.flagged = false;
+    render();
   }
 
   function updateStats(){
@@ -644,6 +669,7 @@
     card.className = 'card' + (item.flagged ? ' new-flag' : '');
     card.addEventListener('click', (e)=>{
       if(e.target.closest('.toggle') || e.target.closest('.remove-btn')) return;
+      dismissNewItems(item);
       window.open(item.url, '_blank', 'noopener');
     });
 
