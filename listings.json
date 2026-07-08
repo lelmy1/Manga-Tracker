@@ -2,7 +2,7 @@
   "mdrk-wsj-001": {
     "label": "Weekly Shonen Jump (Mandarake)",
     "url": "https://order.mandarake.co.jp/order/listPage/list?page=1&keyword=weekly%20shonen%20jump&lang=en",
-    "lastChecked": "2026-07-08T05:03:08.787193+00:00",
+    "lastChecked": "2026-07-08T05:13:49.165230+00:00",
     "items": [
       {
         "id": "6474c871a6d63b11",
@@ -502,14 +502,28 @@
         "isNew": true
       }
     ],
-    "newCount": 71,
+    "newCount": 0,
     "error": false
   },
   "yahoo-wsj-001": {
     "label": "Weekly Shonen Jump (Yahoo Auctions)",
     "url": "https://auctions.yahoo.co.jp/search/search?va=shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump&x=0&y=0",
-    "lastChecked": "2026-07-08T05:03:08.787193+00:00",
+    "lastChecked": "2026-07-08T05:13:49.165230+00:00",
     "items": [
+      {
+        "id": "609f2a82460df2d6",
+        "title": "週刊少年ジャンプ 2024年 1号〜52号 全年セット",
+        "price": "1円",
+        "url": "https://auctions.yahoo.co.jp/jp/auction/j1236362000",
+        "isNew": true
+      },
+      {
+        "id": "d7beee0c80f9d103",
+        "title": "y6992 週刊少年ジャンプ 1998年 24号 HUNTER HUNTER ハンターハンター ONE PIECE ワンピース",
+        "price": "29,800円",
+        "url": "https://auctions.yahoo.co.jp/jp/auction/t1236353100",
+        "isNew": true
+      },
       {
         "id": "d7800124c52739c6",
         "title": "Hf-242/週刊少年ジャンプ 2009年10号 トリコ巻頭カラー めだかボックス掲載　ONEPIECE　銀魂/L4/80708",
@@ -845,23 +859,9 @@
         "price": "4,999円",
         "url": "https://auctions.yahoo.co.jp/jp/auction/c1236292733",
         "isNew": true
-      },
-      {
-        "id": "98286b6e67a9cde3",
-        "title": "【非売品】超激レア 貴重 馬上鷹将　ファン認定証 あかね噺 GALAXY GANGS オレゴラッソ 週刊少年ジャンプ",
-        "price": "99,999円",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/f1236287877",
-        "isNew": true
-      },
-      {
-        "id": "458eef5b58a3d900",
-        "title": "■中古■ 週刊少年ジャンプ 90年 23号 ドラゴンボール DRAGON BALL ろくでなしBLUES 聖闘士星矢 ジョジョ 電影少女 花の慶次 ダイの大冒険",
-        "price": "1,900円",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/n1236288090",
-        "isNew": true
       }
     ],
-    "newCount": 6,
+    "newCount": 2,
     "error": false
   }
 }
