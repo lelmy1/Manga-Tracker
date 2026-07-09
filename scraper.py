@@ -175,12 +175,66 @@ def extract_yahoo_auctions_items(page):
     return unique
 
 
+def extract_fril_items(page):
+    """
+    Pulls listing cards out of a rendered Fril/Rakuma (fril.jp) brand or
+    category listing page. Each result is an `.item-box` with a title link
+    (`a.link_brand_title`), a price span (`[data-test="item_price"]`), and
+    a thumbnail. Sold-out items are skipped since they're no longer
+    purchasable and just add noise to the "new listing" alerts.
+    """
+    items = []
+    boxes = page.query_selector_all(".item-box")
+
+    for box in boxes:
+        if box.query_selector(".item-box__soldout_ribbon"):
+            continue
+
+        title_el = box.query_selector("a.link_brand_title")
+        if not title_el:
+            continue
+        href = title_el.get_attribute("href") or ""
+        title = (title_el.inner_text() or title_el.get_attribute("title") or "").strip()
+        if not href or not title:
+            continue
+
+        price = ""
+        price_el = box.query_selector('[data-test="item_price"]')
+        if price_el:
+            price_val = (price_el.get_attribute("data-content") or price_el.inner_text() or "").strip()
+            if price_val:
+                price = price_val + "円"
+
+        image = ""
+        img_el = box.query_selector(".item-box__image-wrapper img")
+        if img_el:
+            image = img_el.get_attribute("src") or img_el.get_attribute("data-original") or ""
+
+        items.append({
+            "id": make_item_id(href, title),
+            "title": title,
+            "price": price,
+            "image": image,
+            "url": href,
+        })
+
+    # De-dupe by id, preserve order
+    seen_ids = set()
+    unique = []
+    for it in items:
+        if it["id"] not in seen_ids:
+            seen_ids.add(it["id"])
+            unique.append(it)
+    return unique
+
+
 # Maps a tracked page's hostname to the extractor that knows how to read its
 # markup. Add an entry here (and a matching extract_*_items function above)
 # whenever you start tracking a new site.
 EXTRACTORS_BY_HOST = {
     "order.mandarake.co.jp": extract_mandarake_items,
     "auctions.yahoo.co.jp": extract_yahoo_auctions_items,
+    "fril.jp": extract_fril_items,
 }
 
 # order.mandarake.co.jp 302-redirects cold requests (no session cookie) to
@@ -189,6 +243,14 @@ EXTRACTORS_BY_HOST = {
 # clicking through from the site's own language selector would.
 WARMUP_URL_BY_HOST = {
     "order.mandarake.co.jp": "https://earth.mandarake.co.jp/",
+}
+
+# Default "networkidle" never fires on some sites (persistent background
+# requests - analytics, polling, etc.) and just times out. Override per host
+# when that happens; "domcontentloaded" + the fixed settle delay below is
+# enough once the actual listing markup is server-rendered.
+WAIT_UNTIL_BY_HOST = {
+    "fril.jp": "domcontentloaded",
 }
 
 
@@ -204,11 +266,12 @@ def scrape_one(playwright, tracked, debug=False):
     page = context.new_page()
     items = []
     try:
+        wait_until = WAIT_UNTIL_BY_HOST.get(hostname, "networkidle")
         warmup_url = WARMUP_URL_BY_HOST.get(hostname)
         if warmup_url:
             page.goto(warmup_url, wait_until="networkidle", timeout=30000)
-        page.goto(tracked["url"], wait_until="networkidle", timeout=30000)
-        page.wait_for_timeout(1500)  # let lazy-loaded content settle
+        page.goto(tracked["url"], wait_until=wait_until, timeout=30000)
+        page.wait_for_timeout(3000 if wait_until != "networkidle" else 1500)  # let lazy-loaded content settle
         if debug:
             debug_path = BASE_DIR / f"debug_{tracked['id']}.html"
             debug_path.write_text(page.content(), encoding="utf-8")
