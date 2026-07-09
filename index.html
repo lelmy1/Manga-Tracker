@@ -912,7 +912,6 @@
     const localState = loadLocalState();
     const notifiedIds = new Set(localState.notifiedItemIds || []);
     const dismissedIds = new Set(localState.dismissedItemIds || []);
-    const allKnownIds = new Set();
     let notifiedSomething = false;
 
     items.forEach(item => {
@@ -921,7 +920,6 @@
       item.lastChecked = data.lastChecked ? new Date(data.lastChecked).getTime() : null;
       item.totalCount = data.items ? data.items.length : 0;
       item.error = !!data.error;
-      (data.items || []).forEach(it => allKnownIds.add(it.id));
       const newItems = (data.items || []).filter(it => it.isNew);
       item._newItemIds = newItems.map(it => it.id);
       const undismissed = newItems.filter(it => !dismissedIds.has(it.id));
@@ -939,18 +937,21 @@
       }
     });
 
-    // Garbage-collect notified ids that have rolled off listings.json (the
-    // scraper only keeps NEW_WINDOW_HOURS worth of "new" history) so this
-    // doesn't grow forever - losing that history just means an old item
-    // could re-notify once, which is harmless. dismissedItemIds is NOT
-    // pruned the same way: a listing can be transiently missing from one
-    // scrape's results (extraction/ordering variance on some sites) and
-    // reappear later with the same id - if we'd pruned its dismissal in
-    // that gap, a user's explicit "I've seen this" click would silently
-    // un-dismiss itself the next time the listing resurfaced.
-    const prunedNotified = Array.from(notifiedIds).filter(id => allKnownIds.has(id));
-    if(notifiedSomething || prunedNotified.length !== notifiedIds.size){
-      localState.notifiedItemIds = prunedNotified;
+    // notifiedItemIds is NOT pruned based on absence from the current
+    // scrape, for the same reason dismissedItemIds isn't (see above): a
+    // listing can be transiently missing from one scrape's results
+    // (extraction/ordering variance on some sites, e.g. Mercari) and
+    // reappear later with the same id. Pruning here would re-fire a
+    // browser notification for something already seen every time that
+    // happens, not just once - so instead just cap the array's size,
+    // trimming the oldest entries first, to keep localStorage bounded
+    // without forgetting anything on a whim.
+    if(notifiedSomething){
+      const capped = Array.from(notifiedIds);
+      const MAX_NOTIFIED_IDS = 2000;
+      localState.notifiedItemIds = capped.length > MAX_NOTIFIED_IDS
+        ? capped.slice(capped.length - MAX_NOTIFIED_IDS)
+        : capped;
       saveLocalState(localState);
     }
   }
