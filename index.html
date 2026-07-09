@@ -939,14 +939,18 @@
       }
     });
 
-    // Garbage-collect ids that have rolled off listings.json (the scraper
-    // only keeps NEW_WINDOW_HOURS worth of "new" history) so these sets
-    // don't grow forever.
+    // Garbage-collect notified ids that have rolled off listings.json (the
+    // scraper only keeps NEW_WINDOW_HOURS worth of "new" history) so this
+    // doesn't grow forever - losing that history just means an old item
+    // could re-notify once, which is harmless. dismissedItemIds is NOT
+    // pruned the same way: a listing can be transiently missing from one
+    // scrape's results (extraction/ordering variance on some sites) and
+    // reappear later with the same id - if we'd pruned its dismissal in
+    // that gap, a user's explicit "I've seen this" click would silently
+    // un-dismiss itself the next time the listing resurfaced.
     const prunedNotified = Array.from(notifiedIds).filter(id => allKnownIds.has(id));
-    const prunedDismissed = Array.from(dismissedIds).filter(id => allKnownIds.has(id));
-    if(notifiedSomething || prunedNotified.length !== notifiedIds.size || prunedDismissed.length !== dismissedIds.size){
+    if(notifiedSomething || prunedNotified.length !== notifiedIds.size){
       localState.notifiedItemIds = prunedNotified;
-      localState.dismissedItemIds = prunedDismissed;
       saveLocalState(localState);
     }
   }
