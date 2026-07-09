@@ -370,7 +370,7 @@ def wait_for_stable_count(page, selector, poll_interval_ms=700, max_wait_ms=1200
     return last_count
 
 
-def load_virtualized_items(page, cell_selector, populated_selector, max_scrolls=15, pause_ms=1000, stable_rounds=2):
+def load_virtualized_items(page, cell_selector, populated_selector, max_scrolls=25, pause_ms=1200, stable_rounds=2):
     """
     Repeatedly scrolls (via wheel input) until the number of `cell_selector`
     matches that also contain `populated_selector` stops growing, or
