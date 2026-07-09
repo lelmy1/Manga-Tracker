@@ -26,6 +26,7 @@ import json
 import re
 import sys
 import hashlib
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -320,13 +321,79 @@ WAIT_UNTIL_BY_HOST = {
 
 # Some sites hydrate results via a client-side API call after the page
 # itself loads, and even "networkidle" doesn't reliably mean that call has
-# resolved yet - a fixed sleep can race it and see zero/partial results.
-# Wait for a specific selector's first match instead where that happens;
-# a timeout here just means genuinely no results, not an error, so the
-# extractor still runs afterward regardless.
+# resolved yet - a fixed sleep can race it. Wait for a specific selector's
+# match *count to stop growing* instead where that happens (see
+# wait_for_stable_count below).
 WAIT_FOR_SELECTOR_BY_HOST = {
     "jp.mercari.com": '[data-testid="item-cell"]',
 }
+
+# jp.mercari.com virtualizes its results grid: every result's wrapper
+# element exists in the DOM up front (so wait_for_stable_count's count
+# looks "done" immediately), but only ones near the viewport actually have
+# their content (title/link) populated - out of e.g. 118 wrapper elements
+# only ~15 had real content without scrolling. That's what was making
+# perfectly-existing listings look "new" every run: each scrape only ever
+# captured whatever small, differently-truncated slice happened to be
+# populated, so a listing missing from one run's slice looked brand new
+# the next time it happened to be included. Needs actual scroll/wheel
+# input (not just waiting, and not plain scrollTo - the real scroll
+# container isn't the window) to populate more of it.
+VIRTUALIZED_SCROLL_BY_HOST = {
+    "jp.mercari.com": {
+        "cell_selector": '[data-testid="item-cell"]',
+        "populated_selector": 'a[data-testid="thumbnail-link"]',
+    },
+}
+
+
+def wait_for_stable_count(page, selector, poll_interval_ms=700, max_wait_ms=12000):
+    """
+    Polls `selector`'s match count until it stops growing (unchanged on two
+    consecutive checks) or `max_wait_ms` elapses. Returns the final count.
+    A timeout just means it never stabilized in time (or genuinely has zero
+    matches) - not an error, the extractor still runs on whatever's there.
+    """
+    start = time.monotonic()
+    last_count = -1
+    stable_checks = 0
+    while (time.monotonic() - start) * 1000 < max_wait_ms:
+        count = len(page.query_selector_all(selector))
+        if count > 0 and count == last_count:
+            stable_checks += 1
+            if stable_checks >= 2:
+                return count
+        else:
+            stable_checks = 0
+        last_count = count
+        page.wait_for_timeout(poll_interval_ms)
+    return last_count
+
+
+def load_virtualized_items(page, cell_selector, populated_selector, max_scrolls=15, pause_ms=1000, stable_rounds=2):
+    """
+    Repeatedly scrolls (via wheel input) until the number of `cell_selector`
+    matches that also contain `populated_selector` stops growing, or
+    `max_scrolls` is hit. See VIRTUALIZED_SCROLL_BY_HOST for why this is
+    needed on top of wait_for_stable_count.
+    """
+    def populated_count():
+        cells = page.query_selector_all(cell_selector)
+        return sum(1 for c in cells if c.query_selector(populated_selector))
+
+    last = -1
+    stable = 0
+    for _ in range(max_scrolls):
+        page.mouse.wheel(0, 2500)
+        page.wait_for_timeout(pause_ms)
+        count = populated_count()
+        if count == last:
+            stable += 1
+            if stable >= stable_rounds:
+                break
+        else:
+            stable = 0
+        last = count
 
 
 def scrape_one(playwright, tracked, debug=False):
@@ -348,10 +415,10 @@ def scrape_one(playwright, tracked, debug=False):
         page.goto(tracked["url"], wait_until=wait_until, timeout=30000)
         wait_selector = WAIT_FOR_SELECTOR_BY_HOST.get(hostname)
         if wait_selector:
-            try:
-                page.wait_for_selector(wait_selector, timeout=8000)
-            except Exception:
-                pass  # genuinely no results, or slower than expected either way
+            wait_for_stable_count(page, wait_selector)
+        virt_cfg = VIRTUALIZED_SCROLL_BY_HOST.get(hostname)
+        if virt_cfg:
+            load_virtualized_items(page, virt_cfg["cell_selector"], virt_cfg["populated_selector"])
         page.wait_for_timeout(3000 if wait_until != "networkidle" else 1500)  # let lazy-loaded content settle
         if debug:
             debug_path = BASE_DIR / f"debug_{tracked['id']}.html"
