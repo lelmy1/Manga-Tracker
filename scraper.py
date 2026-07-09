@@ -178,11 +178,15 @@ def extract_yahoo_auctions_items(page):
 
 def extract_fril_items(page):
     """
-    Pulls listing cards out of a rendered Fril/Rakuma (fril.jp) brand or
-    category listing page. Each result is an `.item-box` with a title link
-    (`a.link_brand_title`), a price span (`[data-test="item_price"]`), and
-    a thumbnail. Sold-out items are skipped since they're no longer
-    purchasable and just add noise to the "new listing" alerts.
+    Pulls listing cards out of a rendered Fril/Rakuma (fril.jp) page - brand
+    pages (/brand/{id}/category/{id}) and keyword search pages (/s?query=...)
+    use different markup for the same info - the title link has a
+    different class (link_brand_title vs. link_search_title) and the price
+    span only sometimes carries a data-test attribute - so select through
+    the stable wrapper classes (`.item-box__item-name`, `.item-box__item-price`)
+    instead of anything template-specific. Sold-out items are skipped since
+    they're no longer purchasable and just add noise to the "new listing"
+    alerts.
     """
     items = []
     boxes = page.query_selector_all(".item-box")
@@ -191,7 +195,7 @@ def extract_fril_items(page):
         if box.query_selector(".item-box__soldout_ribbon"):
             continue
 
-        title_el = box.query_selector("a.link_brand_title")
+        title_el = box.query_selector(".item-box__item-name a")
         if not title_el:
             continue
         href = title_el.get_attribute("href") or ""
@@ -200,11 +204,13 @@ def extract_fril_items(page):
             continue
 
         price = ""
-        price_el = box.query_selector('[data-test="item_price"]')
-        if price_el:
-            price_val = (price_el.get_attribute("data-content") or price_el.inner_text() or "").strip()
-            if price_val:
-                price = price_val + "円"
+        price_wrap = box.query_selector(".item-box__item-price")
+        if price_wrap:
+            for span in price_wrap.query_selector_all("span"):
+                content = (span.get_attribute("data-content") or "").strip()
+                if content and content != "JPY":
+                    price = content + "円"
+                    break
 
         image = ""
         img_el = box.query_selector(".item-box__image-wrapper img")
