@@ -23,6 +23,7 @@ Usage:
 """
 
 import json
+import re
 import sys
 import hashlib
 from datetime import datetime, timezone
@@ -228,6 +229,63 @@ def extract_fril_items(page):
     return unique
 
 
+def extract_mercari_items(page):
+    """
+    Pulls listing cards out of a rendered Mercari (jp.mercari.com) search
+    results page. The visible price shows a currency conversion based on
+    the visitor's apparent location (e.g. "CA$11.18" from a Canadian IP,
+    which is what GitHub Actions runners look like), so the JPY price is
+    pulled from each card's aria-label instead, which always states the
+    real yen price regardless of where the scraper happens to run from.
+    """
+    items = []
+    cells = page.query_selector_all('[data-testid="item-cell"]')
+
+    for cell in cells:
+        link_el = cell.query_selector('a[data-testid="thumbnail-link"]')
+        if not link_el:
+            continue
+        href = link_el.get_attribute("href") or ""
+        if not href:
+            continue
+        full_url = href if href.startswith("http") else "https://jp.mercari.com" + href
+
+        title_el = cell.query_selector('[data-testid="thumbnail-item-name"]')
+        title = (title_el.inner_text() if title_el else "").strip()
+        if not title:
+            continue
+
+        price = ""
+        thumb_el = cell.query_selector(".merItemThumbnail")
+        if thumb_el:
+            aria = thumb_el.get_attribute("aria-label") or ""
+            m = re.search(r"([\d,]+)円", aria)
+            if m:
+                price = m.group(1) + "円"
+
+        image = ""
+        img_el = cell.query_selector("img")
+        if img_el:
+            image = img_el.get_attribute("src") or ""
+
+        items.append({
+            "id": make_item_id(full_url, title),
+            "title": title,
+            "price": price,
+            "image": image,
+            "url": full_url,
+        })
+
+    # De-dupe by id, preserve order
+    seen_ids = set()
+    unique = []
+    for it in items:
+        if it["id"] not in seen_ids:
+            seen_ids.add(it["id"])
+            unique.append(it)
+    return unique
+
+
 # Maps a tracked page's hostname to the extractor that knows how to read its
 # markup. Add an entry here (and a matching extract_*_items function above)
 # whenever you start tracking a new site.
@@ -235,6 +293,7 @@ EXTRACTORS_BY_HOST = {
     "order.mandarake.co.jp": extract_mandarake_items,
     "auctions.yahoo.co.jp": extract_yahoo_auctions_items,
     "fril.jp": extract_fril_items,
+    "jp.mercari.com": extract_mercari_items,
 }
 
 # order.mandarake.co.jp 302-redirects cold requests (no session cookie) to
@@ -251,6 +310,16 @@ WARMUP_URL_BY_HOST = {
 # enough once the actual listing markup is server-rendered.
 WAIT_UNTIL_BY_HOST = {
     "fril.jp": "domcontentloaded",
+}
+
+# Some sites hydrate results via a client-side API call after the page
+# itself loads, and even "networkidle" doesn't reliably mean that call has
+# resolved yet - a fixed sleep can race it and see zero/partial results.
+# Wait for a specific selector's first match instead where that happens;
+# a timeout here just means genuinely no results, not an error, so the
+# extractor still runs afterward regardless.
+WAIT_FOR_SELECTOR_BY_HOST = {
+    "jp.mercari.com": '[data-testid="item-cell"]',
 }
 
 
@@ -271,6 +340,12 @@ def scrape_one(playwright, tracked, debug=False):
         if warmup_url:
             page.goto(warmup_url, wait_until="networkidle", timeout=30000)
         page.goto(tracked["url"], wait_until=wait_until, timeout=30000)
+        wait_selector = WAIT_FOR_SELECTOR_BY_HOST.get(hostname)
+        if wait_selector:
+            try:
+                page.wait_for_selector(wait_selector, timeout=8000)
+            except Exception:
+                pass  # genuinely no results, or slower than expected either way
         page.wait_for_timeout(3000 if wait_until != "networkidle" else 1500)  # let lazy-loaded content settle
         if debug:
             debug_path = BASE_DIR / f"debug_{tracked['id']}.html"
