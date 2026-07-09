@@ -527,8 +527,8 @@
 
   <div class="add-panel">
     <div class="add-row">
-      <input type="text" id="urlInput" placeholder="Paste a series page, e.g. https://example.com/manga/one-piece" />
-      <input type="text" id="labelInput" placeholder="Series name (optional)" />
+      <input type="text" id="urlInput" placeholder="Paste a URL" />
+      <input type="text" id="labelInput" placeholder="URL Name (Optional)" />
       <button class="add-btn" id="addBtn">Add to watch</button>
     </div>
   </div>
@@ -610,16 +610,30 @@
 
   // Shows the tracked site's real favicon when it'll load, falling back to
   // the plain text monogram (works for any domain, not just ones we know).
+  // Tries the site's own /favicon.ico first (most accurate, but some sites
+  // redirect it to a non-image page), then Google's favicon proxy (handles
+  // those redirects, but silently serves a generic icon - still a
+  // "successful" image load - for domains it hasn't indexed yet), then
+  // finally gives up and shows initials.
   function buildMonogram(domain){
     const mono = document.createElement('div');
     mono.className = 'monogram';
+    if(!domain){
+      mono.textContent = monogramOf(domain);
+      return mono;
+    }
     const icon = document.createElement('img');
     icon.className = 'monogram-icon';
     icon.alt = '';
-    icon.src = 'https://www.google.com/s2/favicons?sz=64&domain=' + encodeURIComponent(domain || '');
+    icon.src = 'https://' + domain + '/favicon.ico';
     icon.onerror = function(){
-      icon.remove();
-      mono.textContent = monogramOf(domain);
+      if(icon.dataset.fallback !== 'google'){
+        icon.dataset.fallback = 'google';
+        icon.src = 'https://www.google.com/s2/favicons?sz=64&domain=' + encodeURIComponent(domain);
+      } else {
+        icon.remove();
+        mono.textContent = monogramOf(domain);
+      }
     };
     mono.appendChild(icon);
     return mono;
