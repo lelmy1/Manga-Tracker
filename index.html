@@ -951,18 +951,23 @@
     }
   }
 
-  // Marks an item's currently-new listings as seen so the "new" badge
-  // clears immediately on click, instead of waiting for the scraper's
-  // NEW_WINDOW_HOURS to elapse server-side.
-  function dismissNewItems(item){
-    if(!item._newItemIds || item._newItemIds.length === 0) return;
+  // Marks the given listing ids (or, if omitted, every currently-new
+  // listing on this card) as seen so the "new" badge clears immediately,
+  // instead of waiting for the scraper's NEW_WINDOW_HOURS to elapse
+  // server-side. Clicking one specific listing in the preview list only
+  // dismisses that one - the card can still have other new listings left.
+  function dismissNewItems(item, idsToDismiss){
+    const ids = idsToDismiss || item._newItemIds;
+    if(!ids || ids.length === 0) return;
     const localState = loadLocalState();
     const dismissedIds = new Set(localState.dismissedItemIds || []);
-    item._newItemIds.forEach(id => dismissedIds.add(id));
+    ids.forEach(id => dismissedIds.add(id));
     localState.dismissedItemIds = Array.from(dismissedIds);
     saveLocalState(localState);
-    item.newCount = 0;
-    item.flagged = false;
+    if(item._newItemIds){
+      item.newCount = item._newItemIds.filter(id => !dismissedIds.has(id)).length;
+      item.flagged = item.newCount > 0;
+    }
     render();
   }
 
@@ -1188,7 +1193,7 @@
       row.rel = 'noopener';
       row.addEventListener('click', (e)=>{
         e.stopPropagation();
-        dismissNewItems(item);
+        dismissNewItems(item, [listing.id]);
       });
 
       const thumb = document.createElement('div');
