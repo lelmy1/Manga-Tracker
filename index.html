@@ -309,7 +309,7 @@
     transform:translateX(-4px);
     transition:all .15s ease;
   }
-  .remove-btn, .edit-btn, .seen-btn{
+  .remove-btn, .edit-btn{
     background:none;
     border:none;
     color:var(--text-faint);
@@ -323,8 +323,25 @@
   .remove-btn:hover{ color:var(--red); }
   .edit-btn{ font-size:12.5px; }
   .edit-btn:hover{ color:var(--accent); }
-  .seen-btn{ font-size:13px; color:var(--teal); }
-  .seen-btn:hover{ color:var(--teal); filter:brightness(0.85); }
+
+  .seen-btn{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    background:none;
+    border:1px solid var(--teal-dim);
+    color:var(--teal);
+    font-size:11px;
+    font-weight:600;
+    font-family:'Inter', sans-serif;
+    cursor:pointer;
+    padding:3px 9px;
+    line-height:1.4;
+    border-radius:999px;
+    transition:background .15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .seen-btn:hover{ background:rgba(44,150,115,0.12); border-color:var(--teal); }
 
   .label-edit-input{
     font-family:'Inter', sans-serif;
@@ -1158,7 +1175,7 @@
     if(item.flagged){
       seenBtn = document.createElement('button');
       seenBtn.className = 'seen-btn';
-      seenBtn.textContent = '✓';
+      seenBtn.textContent = '✓ Seen';
       seenBtn.title = 'Mark as seen';
       seenBtn.addEventListener('click', (e)=>{
         e.stopPropagation();
