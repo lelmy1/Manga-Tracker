@@ -2,7 +2,7 @@
   "mdrk-wsj-001": {
     "label": "WSJ Mandarake",
     "url": "https://order.mandarake.co.jp/order/listPage/list?page=1&keyword=weekly%20shonen%20jump&lang=en",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "42fbd5787cf3cb6c",
@@ -389,13 +389,13 @@
         "isNew": false
       }
     ],
-    "newCount": 1,
+    "newCount": 0,
     "error": false
   },
   "mt-mrcocmqagdul": {
     "label": "WSJ Rakuten",
     "url": "https://fril.jp/brand/4636/category/731?order=desc&sort=created_at",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "a7a55c783ab16d3e",
@@ -660,8 +660,16 @@
   "mt-mrctgd811nm0": {
     "label": "WSJ Rakuten 2",
     "url": "https://fril.jp/s?query=%E9%80%B1%E5%88%8A%E5%B0%91%E5%B9%B4%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%97",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
+      {
+        "id": "fc2883e7a3388f99",
+        "title": "週刊少年ジャンプ(27) 2022年 6/20 号",
+        "price": "467円",
+        "image": "https://img.fril.jp/img/842176005/m/2903619548.jpg?1783650905",
+        "url": "https://item.fril.jp/8479e9fc34a273981b23da0e92f563c0",
+        "isNew": true
+      },
       {
         "id": "65fb158692649d7f",
         "title": "週刊少年ジャンプ1996年28号",
@@ -676,22 +684,6 @@
         "price": "7500円",
         "image": "https://img.fril.jp/img/842093872/m/2903398722.jpg?1783611111",
         "url": "https://item.fril.jp/6013f6e082958266fc186d3cce127247",
-        "isNew": true
-      },
-      {
-        "id": "daa6ebea6948e593",
-        "title": "【新品・付録付き】週刊少年ジャンプ 2026年33号",
-        "price": "6000円",
-        "image": "https://img.fril.jp/img/842100830/m/2903417201.jpg?1783617756",
-        "url": "https://item.fril.jp/8121b81d732283b35d7ae0ca78eff6e4",
-        "isNew": true
-      },
-      {
-        "id": "8c783041f44c754a",
-        "title": "【新品・付録付き】週刊少年ジャンプ 2026年33号",
-        "price": "6000円",
-        "image": "https://img.fril.jp/img/842100848/m/2903417245.jpg?1783617797",
-        "url": "https://item.fril.jp/00f7e2e8357cfe0483a2e95cf6e79a0a",
         "isNew": true
       },
       {
@@ -719,11 +711,19 @@
         "isNew": true
       },
       {
-        "id": "fc2883e7a3388f99",
-        "title": "週刊少年ジャンプ(27) 2022年 6/20 号",
-        "price": "467円",
-        "image": "https://img.fril.jp/img/842176005/m/2903619548.jpg?1783650905",
-        "url": "https://item.fril.jp/8479e9fc34a273981b23da0e92f563c0",
+        "id": "daa6ebea6948e593",
+        "title": "【新品・付録付き】週刊少年ジャンプ 2026年33号",
+        "price": "6000円",
+        "image": "https://img.fril.jp/img/842100830/m/2903417201.jpg?1783617756",
+        "url": "https://item.fril.jp/8121b81d732283b35d7ae0ca78eff6e4",
+        "isNew": true
+      },
+      {
+        "id": "8c783041f44c754a",
+        "title": "【新品・付録付き】週刊少年ジャンプ 2026年33号",
+        "price": "6000円",
+        "image": "https://img.fril.jp/img/842100848/m/2903417245.jpg?1783617797",
+        "url": "https://item.fril.jp/00f7e2e8357cfe0483a2e95cf6e79a0a",
         "isNew": true
       },
       {
@@ -751,19 +751,19 @@
         "isNew": true
       },
       {
-        "id": "1cc9a19b6346c06e",
-        "title": "ワンピースカードゲーム モンキー・D・ルフィ 29th 週刊少年ジャンププロモ",
-        "price": "5000円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/2ff41e070555cea940e4541f63befc61",
-        "isNew": true
-      },
-      {
         "id": "cbc8392f34a38b20",
         "title": "週刊少年ジャンプ　2026年 33号　ONE PIECE 新品　未読品　5冊",
         "price": "18888円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
         "url": "https://item.fril.jp/6cc9314882b55c002be4bbec978d1145",
+        "isNew": true
+      },
+      {
+        "id": "1cc9a19b6346c06e",
+        "title": "ワンピースカードゲーム モンキー・D・ルフィ 29th 週刊少年ジャンププロモ",
+        "price": "5000円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/2ff41e070555cea940e4541f63befc61",
         "isNew": true
       },
       {
@@ -871,14 +871,6 @@
         "isNew": true
       },
       {
-        "id": "165a4543166d8a4d",
-        "title": "ＳＬＡＭ　ＤＵＮＫ 吠えろバスケットマン魂！！花道と流川の熱き夏　アニ/集英社/週刊少年ジャンプ編集部（コミック）",
-        "price": "611円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/6b57e982348611b960dff29acc684b05",
-        "isNew": true
-      },
-      {
         "id": "585d46a3117d80b6",
         "title": "週刊 少年ジャンプ 2026年 7/20 32号",
         "price": "300円",
@@ -887,11 +879,11 @@
         "isNew": true
       },
       {
-        "id": "3696234286b89e48",
-        "title": "新品未開封　週刊少年ジャンプ　33号　特典　ワンピースカード付",
-        "price": "4999円",
+        "id": "165a4543166d8a4d",
+        "title": "ＳＬＡＭ　ＤＵＮＫ 吠えろバスケットマン魂！！花道と流川の熱き夏　アニ/集英社/週刊少年ジャンプ編集部（コミック）",
+        "price": "611円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/0307fef3c67b1ce47fbd643e3399703d",
+        "url": "https://item.fril.jp/6b57e982348611b960dff29acc684b05",
         "isNew": true
       },
       {
@@ -919,6 +911,14 @@
         "isNew": false
       },
       {
+        "id": "3696234286b89e48",
+        "title": "新品未開封　週刊少年ジャンプ　33号　特典　ワンピースカード付",
+        "price": "4999円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/0307fef3c67b1ce47fbd643e3399703d",
+        "isNew": true
+      },
+      {
         "id": "1b8490788473fd1e",
         "title": "週刊少年ジャンプ2022年42号ONE PIECE ルフィ ギア5 ニカ 3",
         "price": "10000円",
@@ -943,13 +943,13 @@
         "isNew": true
       }
     ],
-    "newCount": 1,
+    "newCount": 0,
     "error": false
   },
   "mt-mrctgr8b2vsg": {
     "label": "WSJ Rakuten 3",
     "url": "https://fril.jp/s?order=desc&query=weekly%20shonen%20jump&sort=created_at",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "f59fda20d415a43a",
@@ -1270,7 +1270,7 @@
   "mt-mrct047xjftr": {
     "label": "WSJ Mercari 1",
     "url": "https://jp.mercari.com/search?keyword=weekly%20shonen%20jump&status=on_sale&sort=created_time&order=desc",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "9181ba3ca643d320",
@@ -1542,7 +1542,7 @@
         "price": "1,599円",
         "image": "https://static.mercdn.net/thumb/item/webp/m75034426885_1.jpg?1783120589",
         "url": "https://jp.mercari.com/item/m75034426885",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "7014b0d54dbe003e",
@@ -1550,7 +1550,7 @@
         "price": "2,680円",
         "image": "https://static.mercdn.net/thumb/item/webp/m91206473619_1.jpg?1781440527",
         "url": "https://jp.mercari.com/item/m91206473619",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "fa574dd8a154c221",
@@ -1558,7 +1558,7 @@
         "price": "6,600円",
         "image": "https://assets.mercari-shops-static.com/-/small/plain/2JTTVjgBoMTz9xR777ADw6.webp@webp",
         "url": "https://jp.mercari.com/shops/product/2JTTVjhXfDVQyDkzYdUe6L",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "a10b6f63a6b8cb7f",
@@ -1566,7 +1566,7 @@
         "price": "400円",
         "image": "https://assets.mercari-shops-static.com/-/small/plain/2JT6eSLkPsVLAxb8iaCyJL.jpg@webp",
         "url": "https://jp.mercari.com/shops/product/2JT6eUED2dseszNW4xibZn",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "dcfac03384ff1b54",
@@ -1574,7 +1574,7 @@
         "price": "4,300円",
         "image": "https://static.mercdn.net/thumb/item/webp/m45774635344_1.jpg?1781624488",
         "url": "https://jp.mercari.com/item/m45774635344",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "13fd6ab0400890d1",
@@ -1582,7 +1582,7 @@
         "price": "107,100円",
         "image": "https://static.mercdn.net/thumb/item/webp/m43272691687_1.jpg?1782050517",
         "url": "https://jp.mercari.com/item/m43272691687",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "0ab181f0af17bde4",
@@ -1590,7 +1590,7 @@
         "price": "11,000円",
         "image": "https://static.mercdn.net/thumb/item/webp/m80557018292_1.jpg?1782952171",
         "url": "https://jp.mercari.com/item/m80557018292",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "70c7b7e6bac6292c",
@@ -1702,7 +1702,7 @@
         "price": "185,000円",
         "image": "https://static.mercdn.net/thumb/item/webp/m73199770393_1.jpg?1779372018",
         "url": "https://jp.mercari.com/item/m73199770393",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "8285d6e0e7f6fa5f",
@@ -1710,7 +1710,7 @@
         "price": "20,000円",
         "image": "https://static.mercdn.net/thumb/item/webp/m16598765132_1.jpg?1782031662",
         "url": "https://jp.mercari.com/item/m16598765132",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "e508c9721f19a919",
@@ -1718,7 +1718,7 @@
         "price": "500,000円",
         "image": "https://static.mercdn.net/thumb/item/webp/m75062675565_1.jpg?1783392051",
         "url": "https://jp.mercari.com/item/m75062675565",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "3788336a4882fde8",
@@ -1726,7 +1726,7 @@
         "price": "200,000円",
         "image": "https://static.mercdn.net/thumb/item/webp/m88578800904_1.jpg?1783392188",
         "url": "https://jp.mercari.com/item/m88578800904",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "20999ec8669bacad",
@@ -1734,7 +1734,7 @@
         "price": "29,800円",
         "image": "https://static.mercdn.net/thumb/item/webp/m59808787842_1.jpg?1783391965",
         "url": "https://jp.mercari.com/item/m59808787842",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "379aae7ffa8ecc4f",
@@ -1742,7 +1742,7 @@
         "price": "200,000円",
         "image": "https://static.mercdn.net/thumb/item/webp/m74754478998_1.jpg?1783392271",
         "url": "https://jp.mercari.com/item/m74754478998",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "85ead266154ce5ac",
@@ -1750,7 +1750,7 @@
         "price": "100,000円",
         "image": "https://static.mercdn.net/thumb/item/webp/m69592511580_1.jpg?1783391415",
         "url": "https://jp.mercari.com/item/m69592511580",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "1fa4924555facd18",
@@ -1758,7 +1758,7 @@
         "price": "200,000円",
         "image": "https://static.mercdn.net/thumb/item/webp/m97127484232_1.jpg?1783392352",
         "url": "https://jp.mercari.com/item/m97127484232",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "a11a7cb3c16de762",
@@ -1766,7 +1766,7 @@
         "price": "119,800円",
         "image": "https://static.mercdn.net/thumb/item/webp/m21399648524_1.jpg?1781928703",
         "url": "https://jp.mercari.com/item/m21399648524",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "7413a00b6cc24f8c",
@@ -1774,7 +1774,7 @@
         "price": "8,000円",
         "image": "https://static.mercdn.net/thumb/item/webp/m17734883182_1.jpg?1781847327",
         "url": "https://jp.mercari.com/item/m17734883182",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "e55fb1e43ab7408b",
@@ -1782,16 +1782,16 @@
         "price": "299,000円",
         "image": "https://assets.mercari-shops-static.com/-/small/plain/2JSjecBZxSP3dazuhEqTFZ.jpg@webp",
         "url": "https://jp.mercari.com/shops/product/2JSkuud7zxhnMtsmkN9rKT",
-        "isNew": true
+        "isNew": false
       }
     ],
     "newCount": 0,
-    "error": true
+    "error": false
   },
   "mt-mrcnoupte5ne": {
     "label": "WSJ",
     "url": "https://auctions.yahoo.co.jp/search/search?va=shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump&x=0&y=0",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "8bdde107a6ebcceb",
@@ -2194,13 +2194,13 @@
         "isNew": true
       }
     ],
-    "newCount": 2,
+    "newCount": 0,
     "error": false
   },
   "mt-mrcnzaga4i4m": {
     "label": "Gear 5 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump+2022+17&x=0&y=0",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "e092d1064b3d1a3c",
@@ -2305,7 +2305,7 @@
   "mt-mrbnued87gor": {
     "label": "Gear 5 1st Cover",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump+2022+17&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump+2022+42&x=0&y=0",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "bd1aff9463854db3",
@@ -2450,7 +2450,7 @@
   "mt-mrcf258wnywj": {
     "label": "OP Chapter 100",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump+1999+52-53&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+1999+37-38&x=0&y=0",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "cc4e00e89f41e675",
@@ -2475,7 +2475,7 @@
   "mt-mrcf0vjkb2jg": {
     "label": "Supernova 1st Apps",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump+2008+22-23&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2008+22-23&x=0&y=0",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "3f98f954af8f4690",
@@ -2516,7 +2516,7 @@
   "mt-mrc9fmy7u1id": {
     "label": "Chopper 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2000+23&x=0&y=0",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "6a3f85e4a2bdb1ff",
@@ -2541,7 +2541,7 @@
   "mt-mrcnyst1umyo": {
     "label": "Kuma 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Sh%C5%8Dnen+Jump+2000+14&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Sh%C5%8Dnen+Jump+2002+28&x=0&y=0",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "b8590e32e2ea29b2",
@@ -2558,7 +2558,7 @@
   "mt-mrbnz87ef3em": {
     "label": "Kagurabachi Debut",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Sh%C5%8Dnen+Jump+Issue+2023+42&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Sh%C5%8Dnen+Jump+2023+42&x=0&y=0",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "71e54fec8a43cfd7",
@@ -2631,7 +2631,7 @@
   "mt-mrcf3iki8yk5": {
     "label": "Fool night",
     "url": "https://auctions.yahoo.co.jp/search/search?user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=%E3%83%95%E3%83%BC%E3%83%AB%E3%83%8A%E3%82%A4%E3%83%88&x=0&y=0",
-    "lastChecked": "2026-07-10T03:06:33.663857+00:00",
+    "lastChecked": "2026-07-10T03:12:11.829334+00:00",
     "items": [
       {
         "id": "bcd4046cd138e6e7",
