@@ -2,8 +2,16 @@
   "mdrk-wsj-001": {
     "label": "WSJ Mandarake",
     "url": "https://order.mandarake.co.jp/order/listPage/list?page=1&keyword=weekly%20shonen%20jump&lang=en",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
+      {
+        "id": "f02eb8b3b12698af",
+        "title": "Shueisha 'Manga Magazines from 1999 (Heisei 11) Weekly Shonen Jump 1999 (Heisei 11) 41 9941",
+        "price": "4,450 yen",
+        "image": "https://img.mandarake.co.jp/webshopimg/01/00/837/0100184837/s_010018483775.jpg",
+        "url": "https://order.mandarake.co.jp/order/detailPage/item?itemCode=1342706390&ref=list&keyword=weekly%20shonen%20jump&lang=en",
+        "isNew": true
+      },
       {
         "id": "46ecce9f620c8ae6",
         "title": "Shueisha Manga Magazines from 1991 (Heisei 3) Weekly Shonen Jump 1991 (Heisei Era 3) 03+04 9103",
@@ -379,23 +387,15 @@
         "image": "https://img.mandarake.co.jp/webshopimg/01/01/646/0101427646/s_01014276460.jpg",
         "url": "https://order.mandarake.co.jp/order/detailPage/item?itemCode=1202682896&ref=list&keyword=weekly%20shonen%20jump&lang=en",
         "isNew": true
-      },
-      {
-        "id": "c99657813d25fa45",
-        "title": "Shueisha Manga Magazines from 2020 (Reiwa 2)s Weekly Shonen Jump 2020 (Reiwa 2) 18 202018",
-        "price": "1,000 yen",
-        "image": "https://img.mandarake.co.jp/webshopimg/01/01/639/0101427639/s_01014276390.jpg",
-        "url": "https://order.mandarake.co.jp/order/detailPage/item?itemCode=1202682740&ref=list&keyword=weekly%20shonen%20jump&lang=en",
-        "isNew": true
       }
     ],
-    "newCount": 0,
+    "newCount": 1,
     "error": false
   },
   "mt-mrctgd811nm0": {
     "label": "WSJ Rakuten",
     "url": "https://fril.jp/s?query=%E9%80%B1%E5%88%8A%E5%B0%91%E5%B9%B4%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%97",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "1098371ac1fde459",
@@ -598,14 +598,6 @@
         "isNew": true
       },
       {
-        "id": "e62af171c7ed37a9",
-        "title": "週刊 少年ジャンプ No.34",
-        "price": "300円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/25818a4160838a8fdf87bc38bbf4c7e2",
-        "isNew": true
-      },
-      {
         "id": "79a90235bbe58917",
         "title": "週刊少年ジャンプ 週刊 少年 ジャンプ 雑誌 JUMP 2026年 33号 33",
         "price": "1880円",
@@ -622,14 +614,6 @@
         "isNew": true
       },
       {
-        "id": "e417dec6ea34e5e2",
-        "title": "週刊少年ジャンプ 1977年 新年5・6合併号 こち亀 Weekly Shonen Jump 1977 No.5-6 昭和 レア",
-        "price": "6000円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/539bdba2279a4701400065598eddf9be",
-        "isNew": false
-      },
-      {
         "id": "44a5e378c8b5bf5a",
         "title": "週刊少年ジャンプ 2026年33号 全付録付き ワンピースカード付録 新品",
         "price": "2500円",
@@ -638,27 +622,19 @@
         "isNew": true
       },
       {
+        "id": "e417dec6ea34e5e2",
+        "title": "週刊少年ジャンプ 1977年 新年5・6合併号 こち亀 Weekly Shonen Jump 1977 No.5-6 昭和 レア",
+        "price": "6000円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/539bdba2279a4701400065598eddf9be",
+        "isNew": false
+      },
+      {
         "id": "c9ec582593858d8f",
         "title": "週刊少年ジャンプ 2026年33号 ワンピースカード付録 20枚セット",
         "price": "36000円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
         "url": "https://item.fril.jp/10ee476b23c2a60f499ad53dbee74e6e",
-        "isNew": false
-      },
-      {
-        "id": "a52359984a9401d1",
-        "title": "週刊少年ジャンプ 2002年 39号 BLEACH 連載1周年 Weekly Shonen Jump No.39 ブリーチ　ワンピ",
-        "price": "30000円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/f27a949b3156a6705978025429298d2e",
-        "isNew": false
-      },
-      {
-        "id": "907571a2ac918d5b",
-        "title": "週刊少年ジャンプ 1976年39号 プレイボール表紙 はがき付 Weekly Shonen Jump 1976 No.39 JP",
-        "price": "6000円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/73e9100d4eb1ddc43199f2843ac88e4c",
         "isNew": false
       },
       {
@@ -670,11 +646,27 @@
         "isNew": false
       },
       {
+        "id": "a52359984a9401d1",
+        "title": "週刊少年ジャンプ 2002年 39号 BLEACH 連載1周年 Weekly Shonen Jump No.39 ブリーチ　ワンピ",
+        "price": "30000円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/f27a949b3156a6705978025429298d2e",
+        "isNew": false
+      },
+      {
         "id": "5940cf76bc39b1c9",
         "title": "週刊少年ジャンプ1984年36号コブラ Shonen Jump 1984 No.",
         "price": "13000円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
         "url": "https://item.fril.jp/431110b0b3f8459be3e10c4667571b67",
+        "isNew": false
+      },
+      {
+        "id": "907571a2ac918d5b",
+        "title": "週刊少年ジャンプ 1976年39号 プレイボール表紙 はがき付 Weekly Shonen Jump 1976 No.39 JP",
+        "price": "6000円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/73e9100d4eb1ddc43199f2843ac88e4c",
         "isNew": false
       },
       {
@@ -692,7 +684,7 @@
   "mt-mrct047xjftr": {
     "label": "WSJ Mercari 1",
     "url": "https://jp.mercari.com/search?keyword=weekly%20shonen%20jump&status=on_sale&sort=created_time&order=desc",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "70985a2dd8f8b9d3",
@@ -1165,7 +1157,7 @@
   "mt-mrcnoupte5ne": {
     "label": "WSJ",
     "url": "https://auctions.yahoo.co.jp/search/search?va=shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump&x=0&y=0",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "ff7456433032b598",
@@ -1568,13 +1560,13 @@
         "isNew": true
       }
     ],
-    "newCount": 1,
+    "newCount": 0,
     "error": false
   },
   "mt-mrcnzaga4i4m": {
     "label": "Gear 5 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump+2022+17&x=0&y=0",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "79c95958a7211505",
@@ -1735,7 +1727,7 @@
   "mt-mrbnued87gor": {
     "label": "Gear 5 1st Cover",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump+2022+17&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump+2022+42&x=0&y=0",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "3dd452e96998a01d",
@@ -1848,7 +1840,7 @@
   "mt-mrcf258wnywj": {
     "label": "OP Chapter 100",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump+1999+52-53&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+1999+37-38&x=0&y=0",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "29f8921e84a81f1a",
@@ -1889,7 +1881,7 @@
   "mt-mrcf0vjkb2jg": {
     "label": "Supernova 1st Apps",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump+2008+22-23&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2008+22-23&x=0&y=0",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "ad42eed0790e0837",
@@ -1914,7 +1906,7 @@
   "mt-mrc9fmy7u1id": {
     "label": "Chopper 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2000+23&x=0&y=0",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "8ae8247f6a1955fe",
@@ -1955,7 +1947,7 @@
   "mt-mrcnyst1umyo": {
     "label": "Kuma 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Sh%C5%8Dnen+Jump+2000+14&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Sh%C5%8Dnen+Jump+2002+28&x=0&y=0",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "6cd32c66659ffcd8",
@@ -1972,7 +1964,7 @@
   "mt-mrk2jw5rkrjo": {
     "label": "Brook 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2007+9&x=0&y=0",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "ed61b00e31407e29",
@@ -1997,7 +1989,7 @@
   "mt-mrbnz87ef3em": {
     "label": "Kagurabachi Debut",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Sh%C5%8Dnen+Jump+Issue+2023+42&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Sh%C5%8Dnen+Jump+2023+42&x=0&y=0",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "fb0b03438a7cdf29",
@@ -2142,7 +2134,7 @@
   "mt-mrcf3iki8yk5": {
     "label": "Fool night",
     "url": "https://auctions.yahoo.co.jp/search/search?user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=%E3%83%95%E3%83%BC%E3%83%AB%E3%83%8A%E3%82%A4%E3%83%88&x=0&y=0",
-    "lastChecked": "2026-08-01T09:08:43.555992+00:00",
+    "lastChecked": "2026-08-01T09:13:34.673827+00:00",
     "items": [
       {
         "id": "97e7c7329d658597",
