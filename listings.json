@@ -2,7 +2,7 @@
   "mdrk-wsj-001": {
     "label": "WSJ Mandarake",
     "url": "https://order.mandarake.co.jp/order/listPage/list?page=1&keyword=weekly%20shonen%20jump&lang=en",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "0aeace67d39c0912",
@@ -389,13 +389,13 @@
         "isNew": true
       }
     ],
-    "newCount": 3,
+    "newCount": 0,
     "error": false
   },
   "mt-mrctgd811nm0": {
     "label": "WSJ Rakuten",
     "url": "https://fril.jp/s?query=%E9%80%B1%E5%88%8A%E5%B0%91%E5%B9%B4%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%97",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "c328212016afb032",
@@ -446,19 +446,19 @@
         "isNew": false
       },
       {
-        "id": "a8923ce31909476a",
-        "title": "週刊少年ジャンプ 2022年19号(表紙・巻頭カラー：アオのハコ)",
-        "price": "888円",
-        "image": "https://img.fril.jp/img/844652293/m/2913707714.jpeg?1784942434",
-        "url": "https://item.fril.jp/a9b616ccd506c88dcd7b95f7559fc500",
-        "isNew": false
-      },
-      {
         "id": "3160f709202cd505",
         "title": "週刊 少年ジャンプ 2022年48号",
         "price": "449円",
         "image": "https://img.fril.jp/img/843405147/m/2908780576.jpeg?1784299278",
         "url": "https://item.fril.jp/cc328e33d60e364b01b0ba6a0c8e648e",
+        "isNew": false
+      },
+      {
+        "id": "a8923ce31909476a",
+        "title": "週刊少年ジャンプ 2022年19号(表紙・巻頭カラー：アオのハコ)",
+        "price": "888円",
+        "image": "https://img.fril.jp/img/844652293/m/2913707714.jpeg?1784942434",
+        "url": "https://item.fril.jp/a9b616ccd506c88dcd7b95f7559fc500",
         "isNew": false
       },
       {
@@ -468,14 +468,6 @@
         "image": "https://img.fril.jp/img/842913535/m/2906712556.jpg?1784044414",
         "url": "https://item.fril.jp/44d5462715048399ae3646ba976d4d51",
         "isNew": false
-      },
-      {
-        "id": "c0df5c11fac5e6e7",
-        "title": "週刊 少年ジャンプ 2026年 33号　7/27号 [雑誌]",
-        "price": "1500円",
-        "image": "https://img.fril.jp/img/846496418/m/2921404724.jpg?1785906170",
-        "url": "https://item.fril.jp/3aaaa22246c2b5cea1c6e7091ebbb005",
-        "isNew": true
       },
       {
         "id": "aa938787569f61dc",
@@ -489,8 +481,16 @@
         "id": "6d913d8202dce342",
         "title": "週刊少年ジャンプ付録　シール　すごいよ!!マサルさん セクシーメイツの身だしなみシール ジャンプ",
         "price": "500円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "image": "https://img.fril.jp/img/846499371/m/2921416871.jpg?1785907455",
         "url": "https://item.fril.jp/dac5d298c3d32d81f57c073a987a67f0",
+        "isNew": true
+      },
+      {
+        "id": "c0df5c11fac5e6e7",
+        "title": "週刊 少年ジャンプ 2026年 33号　7/27号 [雑誌]",
+        "price": "1500円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/3aaaa22246c2b5cea1c6e7091ebbb005",
         "isNew": true
       },
       {
@@ -558,20 +558,20 @@
         "isNew": false
       },
       {
-        "id": "5f749dd0174a973f",
-        "title": "週刊 少年ジャンプ 2026年 1/1号 [雑誌]",
-        "price": "1299円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/d7dbf90124dc8620cd4f86a2bb5dcc29",
-        "isNew": true
-      },
-      {
         "id": "15616b1c3036e336",
         "title": "こち亀 週刊少年ジャンプ 40周年記念 両津勘吉 特別編集 2016年",
         "price": "718円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
         "url": "https://item.fril.jp/a846b45e8e5cb495676160120c706337",
         "isNew": false
+      },
+      {
+        "id": "5f749dd0174a973f",
+        "title": "週刊 少年ジャンプ 2026年 1/1号 [雑誌]",
+        "price": "1299円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/d7dbf90124dc8620cd4f86a2bb5dcc29",
+        "isNew": true
       },
       {
         "id": "7a40f39f5de4d128",
@@ -598,14 +598,6 @@
         "isNew": true
       },
       {
-        "id": "0471e472356f26ce",
-        "title": "週刊少年ジャンプ 2023年 4・5合併号",
-        "price": "1500円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/3b280a3b67bdfe935563f94db407cfb6",
-        "isNew": true
-      },
-      {
         "id": "a0688a86e281d950",
         "title": "週刊少年ジャンプ 2010年 36・37合併号 付録セット ポスター ワンピース",
         "price": "1500円",
@@ -614,11 +606,11 @@
         "isNew": true
       },
       {
-        "id": "6accf61c9759620a",
-        "title": "【希少】週刊少年ジャンプ 1991年29号 ジョジョの奇妙な冒険 コレクター必見",
-        "price": "12980円",
+        "id": "0471e472356f26ce",
+        "title": "週刊少年ジャンプ 2023年 4・5合併号",
+        "price": "1500円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/893a37df3569fdcddbbbfc576004bb90",
+        "url": "https://item.fril.jp/3b280a3b67bdfe935563f94db407cfb6",
         "isNew": true
       },
       {
@@ -627,6 +619,14 @@
         "price": "3980円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
         "url": "https://item.fril.jp/fe934d28bcea614e836c89f7a0ae4ba1",
+        "isNew": true
+      },
+      {
+        "id": "6accf61c9759620a",
+        "title": "【希少】週刊少年ジャンプ 1991年29号 ジョジョの奇妙な冒険 コレクター必見",
+        "price": "12980円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/893a37df3569fdcddbbbfc576004bb90",
         "isNew": true
       },
       {
@@ -692,23 +692,15 @@
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
         "url": "https://item.fril.jp/d81bd388518dd14277297765d66d50b4",
         "isNew": false
-      },
-      {
-        "id": "85468cff63e5bfca",
-        "title": "​週刊少年ジャンプ 1979年17号 いずみちゃんSOS 選手名鑑 昭和レトロ Shonen Jump 1979 No.17",
-        "price": "6000円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/7bc47176fb4b0a5c6c8a06fae7c8ba5b",
-        "isNew": false
       }
     ],
-    "newCount": 1,
+    "newCount": 0,
     "error": false
   },
   "mt-mrct047xjftr": {
     "label": "WSJ Mercari 1",
     "url": "https://jp.mercari.com/search?keyword=weekly%20shonen%20jump&status=on_sale&sort=created_time&order=desc",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "c60d26fb56ce9a25",
@@ -1181,8 +1173,24 @@
   "mt-mrcnoupte5ne": {
     "label": "WSJ",
     "url": "https://auctions.yahoo.co.jp/search/search?va=shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump&x=0&y=0",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
+      {
+        "id": "c0aecc451c1f30d6",
+        "title": "週刊少年ジャンプ33号 2026年7月27日号 特別限定とじ込み 付録なし",
+        "price": "300円",
+        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/user/62ed9f2ce645e98850052043d096f1f6149224b8df534a4a5134072510c0a103/i-img553x1200-17859223559249aumtlk100591.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
+        "url": "https://auctions.yahoo.co.jp/jp/auction/c1239755108",
+        "isNew": true
+      },
+      {
+        "id": "38fb3e64309246ef",
+        "title": "週刊少年ジャンプ33号 2026年7月27日号 特別限定とじ込み付録なし",
+        "price": "300円",
+        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/user/62ed9f2ce645e98850052043d096f1f6149224b8df534a4a5134072510c0a103/i-img553x1200-17859222714578617arj298583.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
+        "url": "https://auctions.yahoo.co.jp/jp/auction/g1239750659",
+        "isNew": true
+      },
       {
         "id": "4bb67c50132576ed",
         "title": "送料無料 『10031b』 テレカ 50度数　キャプテン翼 ジャンプ　テレホンカード　テレカ　WEEKLY SHONEN JUMP PHONE CARD CAPTAIN TSUBASA",
@@ -1566,31 +1574,15 @@
         "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/user/f1b44bc992e67453fe842d48b0f0afbb0564d3f91803411577e9e049e3f896b8/i-img1200x801-17859119616900qmkvzf1468.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
         "url": "https://auctions.yahoo.co.jp/jp/auction/o1239739689",
         "isNew": true
-      },
-      {
-        "id": "9848f11c4c9cabc4",
-        "title": "L3-161＜本/新品未開封＞週刊少年ジャンプ 2025年 16号",
-        "price": "100円",
-        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/user/f1b44bc992e67453fe842d48b0f0afbb0564d3f91803411577e9e049e3f896b8/i-img1200x801-17859119598212fzzphb202286.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/q1239721745",
-        "isNew": true
-      },
-      {
-        "id": "21edaf6671e6d709",
-        "title": "L3-160＜本/新品未開封＞週刊少年ジャンプ 2025年 15号",
-        "price": "100円",
-        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/user/f1b44bc992e67453fe842d48b0f0afbb0564d3f91803411577e9e049e3f896b8/i-img1200x801-17859119579352tnjitd4348.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/j1239732087",
-        "isNew": true
       }
     ],
-    "newCount": 0,
+    "newCount": 2,
     "error": false
   },
   "mt-mrcnzaga4i4m": {
     "label": "Gear 5 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump+2022+17&x=0&y=0",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "6f8a1c4ea787ae25",
@@ -1735,7 +1727,7 @@
   "mt-mrbnued87gor": {
     "label": "Gear 5 1st Cover",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump+2022+17&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump+2022+42&x=0&y=0",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "9b9bcbec1d6f2071",
@@ -1800,7 +1792,7 @@
   "mt-mrcf258wnywj": {
     "label": "OP Chapter 100",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump+1999+52-53&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+1999+37-38&x=0&y=0",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "ca577e5a02a9096a",
@@ -1833,7 +1825,7 @@
   "mt-mrcf0vjkb2jg": {
     "label": "Supernova 1st Apps",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump+2008+22-23&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2008+22-23&x=0&y=0",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "1a417c549c096cb4",
@@ -1874,7 +1866,7 @@
   "mt-mrc9fmy7u1id": {
     "label": "Chopper 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2000+23&x=0&y=0",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "8ae8247f6a1955fe",
@@ -1915,7 +1907,7 @@
   "mt-mrcnyst1umyo": {
     "label": "Kuma 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Sh%C5%8Dnen+Jump+2000+14&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Sh%C5%8Dnen+Jump+2002+28&x=0&y=0",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "4aad3272d99661ac",
@@ -2094,14 +2086,6 @@
         "isNew": false
       },
       {
-        "id": "a04fbbe24fff7557",
-        "title": "週刊少年ジャンプ 2002年　NARUTO　ナルト　43号　3周年含む6冊セット",
-        "price": "2,000円",
-        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/user/28d1e72c69c7f5ee147da0c91fc32f883b393e6af9960e68277d52a2cda2ec26/i-img1200x903-17858348556392ultzd727.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/d1239634308",
-        "isNew": false
-      },
-      {
         "id": "fc2bf2b00c1ed13b",
         "title": "週刊少年ジャンプ　2002年25号　新連載：ナンバーテン NUMBER10　キユ",
         "price": "250円",
@@ -2115,6 +2099,14 @@
         "price": "2,500円",
         "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0204/user/bcb44bdb83e7c4ba0d6f7a80ad299e97444de095b90572d1091cec640a262b1c/i-img1005x1200-17754412825284eldefu1009.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
         "url": "https://auctions.yahoo.co.jp/jp/auction/1225499196",
+        "isNew": false
+      },
+      {
+        "id": "869dec592534c20c",
+        "title": "週刊少年ジャンプ 2002年48号 11月11日号 ヒカルの碁 表紙",
+        "price": "1,000円",
+        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0207/user/034636bf82e6ef18bf4faa3e2bc2a28f9867b372f30af290264724699250cf25/i-img900x1200-1784425819958514tghv9f8.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
+        "url": "https://auctions.yahoo.co.jp/jp/auction/v1237655492",
         "isNew": false
       },
       {
@@ -2198,6 +2190,14 @@
         "isNew": false
       },
       {
+        "id": "9ccc24288388b3fe",
+        "title": "週刊少年ジャンプ　2002年　40号　ヒカルの碁　表紙　ワンピース　　NARUTO　他　当時物　送料無料",
+        "price": "2,000円",
+        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0206/user/6f06f356185a4aca1e297588ac4795a51e85671f2cd3cf6ac21d68e77c4a5020/i-img1200x1200-178254942592462cd4df340.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
+        "url": "https://auctions.yahoo.co.jp/jp/auction/b1235095107",
+        "isNew": false
+      },
+      {
         "id": "4a5ab9e085e24b08",
         "title": "週刊少年ジャンプ 2002～2017年 BLEACH ブリーチ 表紙号 30冊 まとめ 久保帯人_長08Nwc0161",
         "price": "2,200円",
@@ -2254,14 +2254,6 @@
         "isNew": false
       },
       {
-        "id": "e5997c123e9bcb88",
-        "title": "週刊少年ジャンプ　2002年17号 / 表紙・巻頭カラー 岸本斉史「NARUTO」/ ワンピース 漫画_長08Nwc0002",
-        "price": "1円",
-        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/user/cbc8ec44d6b6af2b1f9c83d21c1c53004a292d59feee13276367724bfda153f0/i-img960x720-17857425869874suo2ds11916.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/1239480467",
-        "isNew": false
-      },
-      {
         "id": "a452033a6b546f64",
         "title": "週刊少年ジャンプ　2002年41号 / 表紙 冨樫義博「HUNTER×HUNTER」/ ワンピース ナルト 漫画_長08Nwc0020",
         "price": "1円",
@@ -2275,6 +2267,14 @@
         "price": "220円",
         "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0207/user/5afba78d033700c880913494dfe1ec5b34e93ed00fd07eb60e920d8e6a909630/i-img900x1200-17853932672446n8x3rn113365.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
         "url": "https://auctions.yahoo.co.jp/jp/auction/q1238987247",
+        "isNew": false
+      },
+      {
+        "id": "e5997c123e9bcb88",
+        "title": "週刊少年ジャンプ　2002年17号 / 表紙・巻頭カラー 岸本斉史「NARUTO」/ ワンピース 漫画_長08Nwc0002",
+        "price": "1円",
+        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/user/cbc8ec44d6b6af2b1f9c83d21c1c53004a292d59feee13276367724bfda153f0/i-img960x720-17857425869874suo2ds11916.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
+        "url": "https://auctions.yahoo.co.jp/jp/auction/1239480467",
         "isNew": false
       },
       {
@@ -2308,14 +2308,6 @@
         "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0206/user/415f3246f16f74f0711d860581b32a9d89c2b27f6105bd0cec3364d02fbbb12d/i-img1200x1200-17804895015890xtpxuk1745.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
         "url": "https://auctions.yahoo.co.jp/jp/auction/l1232256947",
         "isNew": false
-      },
-      {
-        "id": "85786d064f77d0f7",
-        "title": "週刊少年ジャンプ　2002年24号 / 【新連載】叶恭弘「プリティフェイス」/ ワンピース ナルト 漫画_長08Nwc0015",
-        "price": "1円",
-        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/user/cbc8ec44d6b6af2b1f9c83d21c1c53004a292d59feee13276367724bfda153f0/i-img960x720-178574238220759jw9ew207288.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/r1239495614",
-        "isNew": false
       }
     ],
     "newCount": 0,
@@ -2324,7 +2316,7 @@
   "mt-mrk2jw5rkrjo": {
     "label": "Brook 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2007+9&x=0&y=0",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "46c6c2901fb20e2a",
@@ -2365,7 +2357,7 @@
   "mt-mrbnz87ef3em": {
     "label": "Kagurabachi Debut",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Sh%C5%8Dnen+Jump+Issue+2023+42&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Sh%C5%8Dnen+Jump+2023+42&x=0&y=0",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "828157746ddff18c",
@@ -2408,19 +2400,19 @@
         "isNew": false
       },
       {
-        "id": "bb18ed216cbb95b9",
-        "title": "☆圧倒的希少品☆ 週刊少年ジャンプ 2023年42号 カグラバチ 新連載 2024年40号 連載1周年 ポストカード付き 現品限り 漫画雑誌 マンガ 刀",
-        "price": "25,000円",
-        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0207/user/1ce1e46b54a35a020b3dbd99ae9be90c20dfe64388d060eba4c4136c76407063/i-img901x1200-17840315417891thfz7i68049.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
-        "url": "https://auctions.yahoo.co.jp/jp/auction/p1237074499",
-        "isNew": false
-      },
-      {
         "id": "b34c20d32cab4b44",
         "title": "週刊少年ジャンプ 2023年 42号 カグラバチ 新連載 新連載号 外薗健 集英社【K258355】260702",
         "price": "17,168円",
         "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0207/user/d28bd1e504e3627a7f1901038cdecc670b8f5fcf44b3aeb0bb9d5ac6e708b045/i-img900x1200-17841746779144qunszj34.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
         "url": "https://auctions.yahoo.co.jp/jp/auction/h1237288557",
+        "isNew": false
+      },
+      {
+        "id": "bb18ed216cbb95b9",
+        "title": "☆圧倒的希少品☆ 週刊少年ジャンプ 2023年42号 カグラバチ 新連載 2024年40号 連載1周年 ポストカード付き 現品限り 漫画雑誌 マンガ 刀",
+        "price": "25,000円",
+        "image": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0207/user/1ce1e46b54a35a020b3dbd99ae9be90c20dfe64388d060eba4c4136c76407063/i-img901x1200-17840315417891thfz7i68049.jpg?pri=l&w=300&h=300&up=0&nf_src=sy&nf_path=images/auc/pc/top/image/1.0.3/na_170x170.png&nf_st=200",
+        "url": "https://auctions.yahoo.co.jp/jp/auction/p1237074499",
         "isNew": false
       },
       {
@@ -2470,7 +2462,7 @@
   "mt-mrcf3iki8yk5": {
     "label": "Fool night",
     "url": "https://auctions.yahoo.co.jp/search/search?user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=%E3%83%95%E3%83%BC%E3%83%AB%E3%83%8A%E3%82%A4%E3%83%88&x=0&y=0",
-    "lastChecked": "2026-08-05T09:28:42.116920+00:00",
+    "lastChecked": "2026-08-05T09:34:06.974479+00:00",
     "items": [
       {
         "id": "97e7c7329d658597",
