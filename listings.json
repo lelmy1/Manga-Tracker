@@ -2,7 +2,7 @@
   "mdrk-wsj-001": {
     "label": "WSJ Mandarake",
     "url": "https://order.mandarake.co.jp/order/listPage/list?page=1&keyword=weekly%20shonen%20jump&lang=en",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [
       {
         "id": "a9b8e7d6959a73f0",
@@ -133,6 +133,22 @@
         "isNew": true
       },
       {
+        "id": "93271c810a57be57",
+        "title": "Shueisha Weekly Shonen Jump 2004 (Heisei Era 16) 14 414",
+        "price": "3,500 yen",
+        "image": "https://img.mandarake.co.jp/webshopimg/01/00/859/0100272859/s_010027285937.jpg",
+        "url": "https://order.mandarake.co.jp/order/detailPage/item?itemCode=1354645512&ref=list&keyword=weekly%20shonen%20jump&lang=en",
+        "isNew": true
+      },
+      {
+        "id": "d13f32a2e1a136cc",
+        "title": "Shueisha Weekly Shonen Jump 2004 (Heisei Era 16) 43 443",
+        "price": "6,500 yen",
+        "image": "https://img.mandarake.co.jp/webshopimg/01/00/888/0100272888/s_010027288853.jpg",
+        "url": "https://order.mandarake.co.jp/order/detailPage/item?itemCode=1354645837&ref=list&keyword=weekly%20shonen%20jump&lang=en",
+        "isNew": true
+      },
+      {
         "id": "fe9ac0165646957e",
         "title": "Shueisha Weekly Shonen Jump 1985 years (1985) 07 8507",
         "price": "100,000 yen",
@@ -202,22 +218,6 @@
         "price": "40,000 yen",
         "image": "https://img.mandarake.co.jp/webshopimg/01/00/853/0100272853/s_010027285395.jpg",
         "url": "https://order.mandarake.co.jp/order/detailPage/item?itemCode=1354645434&ref=list&keyword=weekly%20shonen%20jump&lang=en",
-        "isNew": true
-      },
-      {
-        "id": "93271c810a57be57",
-        "title": "Shueisha Weekly Shonen Jump 2004 (Heisei Era 16) 14 414",
-        "price": "3,500 yen",
-        "image": "https://img.mandarake.co.jp/webshopimg/01/00/859/0100272859/s_010027285937.jpg",
-        "url": "https://order.mandarake.co.jp/order/detailPage/item?itemCode=1354645512&ref=list&keyword=weekly%20shonen%20jump&lang=en",
-        "isNew": true
-      },
-      {
-        "id": "d13f32a2e1a136cc",
-        "title": "Shueisha Weekly Shonen Jump 2004 (Heisei Era 16) 43 443",
-        "price": "6,500 yen",
-        "image": "https://img.mandarake.co.jp/webshopimg/01/00/888/0100272888/s_010027288853.jpg",
-        "url": "https://order.mandarake.co.jp/order/detailPage/item?itemCode=1354645837&ref=list&keyword=weekly%20shonen%20jump&lang=en",
         "isNew": true
       },
       {
@@ -298,7 +298,7 @@
         "price": "3,000 yen",
         "image": "https://img.mandarake.co.jp/webshopimg/01/00/278/0100378278/s_01003782780.jpg",
         "url": "https://order.mandarake.co.jp/order/detailPage/item?itemCode=1211112109&ref=list&keyword=weekly%20shonen%20jump&lang=en",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "ae258ce3077bae83",
@@ -314,7 +314,7 @@
         "price": "600 yen",
         "image": "https://img.mandarake.co.jp/webshopimg/01/00/191/0100399191/s_01003991910.jpg",
         "url": "https://order.mandarake.co.jp/order/detailPage/item?itemCode=1355246463&ref=list&keyword=weekly%20shonen%20jump&lang=en",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "c5561d888a8f0584",
@@ -389,22 +389,14 @@
         "isNew": false
       }
     ],
-    "newCount": 13,
+    "newCount": 0,
     "error": false
   },
   "mt-mrctgd811nm0": {
     "label": "WSJ Rakuten",
     "url": "https://fril.jp/s?query=%E9%80%B1%E5%88%8A%E5%B0%91%E5%B9%B4%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%97",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [
-      {
-        "id": "c19b26e95c6a198d",
-        "title": "週刊少年ジャンプ 2026年 51号 サカモトデイズ あかね噺 ウィッチウォッチ",
-        "price": "355円",
-        "image": "https://img.fril.jp/img/866820867/m/3010022657.jpg?1795512668",
-        "url": "https://item.fril.jp/b81c7d64f8c456912ced44b2495fd531",
-        "isNew": true
-      },
       {
         "id": "16c9abcb98b12efa",
         "title": "復刻版 週刊少年ジャンプ 1997年34号 ONE PIECE 第1話 新連載　Shonen Jump 1997 No34",
@@ -414,35 +406,19 @@
         "isNew": false
       },
       {
+        "id": "c19b26e95c6a198d",
+        "title": "週刊少年ジャンプ 2026年 51号 サカモトデイズ あかね噺 ウィッチウォッチ",
+        "price": "355円",
+        "image": "https://img.fril.jp/img/866820867/m/3010022657.jpg?1795512668",
+        "url": "https://item.fril.jp/b81c7d64f8c456912ced44b2495fd531",
+        "isNew": true
+      },
+      {
         "id": "10c3daa5a8a72abd",
         "title": "【希少】週刊少年ジャンプ 1999年35号 ONE PIECE 表紙号 当時物",
         "price": "19980円",
         "image": "https://img.fril.jp/img/839775022/m/2894133569.jpg?1782466111",
         "url": "https://item.fril.jp/513b824c03b78bcbfb2a183511f85e6e",
-        "isNew": false
-      },
-      {
-        "id": "cb20969ac7966298",
-        "title": "週刊 少年ジャンプ 2026年 12/7号 [雑誌]",
-        "price": "300円",
-        "image": "https://img.fril.jp/img/866874897/m/3010281014.jpg?1795533566",
-        "url": "https://item.fril.jp/c3c3855f99f4f2baefabdff4dcf9b13b",
-        "isNew": true
-      },
-      {
-        "id": "4184e54d1456b1ee",
-        "title": "週刊少年ジャンプ 1990年13号 花の慶次 新連載 Shonen Jump 1",
-        "price": "3800円",
-        "image": "https://img.fril.jp/img/836297373/m/2881639736.jpg?1781066049",
-        "url": "https://item.fril.jp/66c7503f6e5c85bb8784b9e3b44804db",
-        "isNew": false
-      },
-      {
-        "id": "c5c0947c5a7208fd",
-        "title": "週刊少年ジャンプ2006年15号 ナルト表紙 ワンピース ギア3初登場",
-        "price": "7601円",
-        "image": "https://img.fril.jp/img/842913535/m/2906712556.jpg?1784044414",
-        "url": "https://item.fril.jp/44d5462715048399ae3646ba976d4d51",
         "isNew": false
       },
       {
@@ -454,35 +430,19 @@
         "isNew": false
       },
       {
-        "id": "50ac2ea53f67d163",
-        "title": "週刊少年ジャンプNEXT！ 2011 SUMMER NARUTO表紙 新品未開封",
-        "price": "29880円",
-        "image": "https://img.fril.jp/img/837053083/m/2884597303.jpg?1781425532",
-        "url": "https://item.fril.jp/7065c761d3b35a28e6928cff95239bf3",
+        "id": "c5c0947c5a7208fd",
+        "title": "週刊少年ジャンプ2006年15号 ナルト表紙 ワンピース ギア3初登場",
+        "price": "7601円",
+        "image": "https://img.fril.jp/img/842913535/m/2906712556.jpg?1784044414",
+        "url": "https://item.fril.jp/44d5462715048399ae3646ba976d4d51",
         "isNew": false
       },
       {
-        "id": "39cf352e35bbddf1",
-        "title": "週刊少年ジャンプ 1993年 18号 ジョジョの奇妙な冒険 第4部 表紙 WSJ",
-        "price": "6000円",
-        "image": "https://img.fril.jp/img/834553239/m/2874874378.jpg?1784605926",
-        "url": "https://item.fril.jp/0d07cbea7592fe9dd6601e5ea33b005e",
-        "isNew": false
-      },
-      {
-        "id": "13671e446557da9e",
-        "title": "描きたい！！を信じる少年ジャンプがどうしても伝えたいマンガの描き方/集英社/週刊少年ジャンプ編集部（単行本）",
-        "price": "524円",
-        "image": "https://img.fril.jp/img/866866029/m/3010243869.jpg?1795529458",
-        "url": "https://item.fril.jp/d71f6f647fd39c768d5a186a0e118f2d",
-        "isNew": true
-      },
-      {
-        "id": "95f584eccf7ea9a8",
-        "title": "週刊少年ジャンプ 1984年 1・2合併号 鳥山明 Dr.スランプ Shonen Jump Toriyama 1984 Japan",
-        "price": "9610円",
-        "image": "https://img.fril.jp/img/844142902/m/2911619614.jpg?1784686348",
-        "url": "https://item.fril.jp/277266ddef23b18fdc43634420460d43",
+        "id": "4184e54d1456b1ee",
+        "title": "週刊少年ジャンプ 1990年13号 花の慶次 新連載 Shonen Jump 1",
+        "price": "3800円",
+        "image": "https://img.fril.jp/img/836297373/m/2881639736.jpg?1781066049",
+        "url": "https://item.fril.jp/66c7503f6e5c85bb8784b9e3b44804db",
         "isNew": false
       },
       {
@@ -494,19 +454,43 @@
         "isNew": false
       },
       {
-        "id": "4476f07ee4a64501",
-        "title": "【希少・新連載号】週刊少年ジャンプ 1981年40号 キャッツ♥アイ 北条司 当時物 昭和ジャンプ 美品",
-        "price": "55800円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/0c601827bba6fc17e2e871b1f6c2205d",
+        "id": "39cf352e35bbddf1",
+        "title": "週刊少年ジャンプ 1993年 18号 ジョジョの奇妙な冒険 第4部 表紙 WSJ",
+        "price": "6000円",
+        "image": "https://img.fril.jp/img/834553239/m/2874874378.jpg?1784605926",
+        "url": "https://item.fril.jp/0d07cbea7592fe9dd6601e5ea33b005e",
         "isNew": false
       },
       {
-        "id": "563f7c3ff341ce7d",
-        "title": "週刊少年ジャンプ1995年25号ドラゴンボール最終回 Weekly Shonen Jump 1995 25 Dragon Ball",
-        "price": "42607円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/f15136d6ccc130ba30ecf02405e1db0c",
+        "id": "95f584eccf7ea9a8",
+        "title": "週刊少年ジャンプ 1984年 1・2合併号 鳥山明 Dr.スランプ Shonen Jump Toriyama 1984 Japan",
+        "price": "9610円",
+        "image": "https://img.fril.jp/img/844142902/m/2911619614.jpg?1784686348",
+        "url": "https://item.fril.jp/277266ddef23b18fdc43634420460d43",
+        "isNew": false
+      },
+      {
+        "id": "50ac2ea53f67d163",
+        "title": "週刊少年ジャンプNEXT！ 2011 SUMMER NARUTO表紙 新品未開封",
+        "price": "29880円",
+        "image": "https://img.fril.jp/img/837053083/m/2884597303.jpg?1781425532",
+        "url": "https://item.fril.jp/7065c761d3b35a28e6928cff95239bf3",
+        "isNew": false
+      },
+      {
+        "id": "b596f14b6689611d",
+        "title": "​週刊少年ジャンプ 1980年 33号 鳥山明 Dr.スランプ Weekly Shonen Jump 1980 No.33",
+        "price": "26120円",
+        "image": "https://img.fril.jp/img/846903732/m/2923267155.jpg?1786139160",
+        "url": "https://item.fril.jp/6142f1bf87dac5fc12afc9d9f0547c4c",
+        "isNew": false
+      },
+      {
+        "id": "90cf5cbf9742fa3d",
+        "title": "ONE PIECE ワンピース ピンズコレクション 2013 夏 ルフィ 週刊少年ジャンプ ジャンショ",
+        "price": "1499円",
+        "image": "https://img.fril.jp/img/864751092/m/3001556800.jpg?1794662259",
+        "url": "https://item.fril.jp/65cee115ef15db2a879765990bd909a0",
         "isNew": false
       },
       {
@@ -518,12 +502,12 @@
         "isNew": false
       },
       {
-        "id": "5f369f193093e955",
-        "title": "週刊少年ジャンプ 2010年 36・37合併号 付録セット ポスター ワンピース",
-        "price": "780円",
+        "id": "26d7dae715d3d4c5",
+        "title": "​週刊少年ジャンプ 1990年 42号 スラムダンク 新連載　Shonen Jump 1990 No.42 SLAM DUNK",
+        "price": "123500円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/00f4a31870d1b1c4e85fd38574d52f9f",
-        "isNew": true
+        "url": "https://item.fril.jp/d882e5d158535fa019d9c072966aebd6",
+        "isNew": false
       },
       {
         "id": "51de1a658dfedd4f",
@@ -550,12 +534,12 @@
         "isNew": false
       },
       {
-        "id": "51663d267d3dcb03",
-        "title": "【シュリンク未開封】週刊少年ジャンプ 52号 新連載 銀座裏通り交番の日月さん",
-        "price": "890円",
+        "id": "563f7c3ff341ce7d",
+        "title": "週刊少年ジャンプ1995年25号ドラゴンボール最終回 Weekly Shonen Jump 1995 25 Dragon Ball",
+        "price": "42607円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/45b57f6643bdd9f7a6db39c9f3dbf552",
-        "isNew": true
+        "url": "https://item.fril.jp/f15136d6ccc130ba30ecf02405e1db0c",
+        "isNew": false
       },
       {
         "id": "13f0a4904684c565",
@@ -563,6 +547,14 @@
         "price": "2220円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
         "url": "https://item.fril.jp/7d2171bdd0d9a421e3c343607f29b36f",
+        "isNew": true
+      },
+      {
+        "id": "ad129317b10503bc",
+        "title": "週刊少年ジャンプ 2021年 17号 ブラッククローバー Shonen Jump 2021 17 Black Clover",
+        "price": "2220円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/478db719e83f308d92bd025a636d8a99",
         "isNew": true
       },
       {
@@ -590,36 +582,20 @@
         "isNew": true
       },
       {
-        "id": "ad129317b10503bc",
-        "title": "週刊少年ジャンプ 2021年 17号 ブラッククローバー Shonen Jump 2021 17 Black Clover",
-        "price": "2220円",
+        "id": "5f369f193093e955",
+        "title": "週刊少年ジャンプ 2010年 36・37合併号 付録セット ポスター ワンピース",
+        "price": "780円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/478db719e83f308d92bd025a636d8a99",
+        "url": "https://item.fril.jp/00f4a31870d1b1c4e85fd38574d52f9f",
         "isNew": true
       },
       {
-        "id": "b596f14b6689611d",
-        "title": "​週刊少年ジャンプ 1980年 33号 鳥山明 Dr.スランプ Weekly Shonen Jump 1980 No.33",
-        "price": "26120円",
+        "id": "51663d267d3dcb03",
+        "title": "【シュリンク未開封】週刊少年ジャンプ 52号 新連載 銀座裏通り交番の日月さん",
+        "price": "890円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/6142f1bf87dac5fc12afc9d9f0547c4c",
-        "isNew": false
-      },
-      {
-        "id": "32678cb61a833815",
-        "title": "​週刊少年ジャンプ 1989年31号 創刊21周年 ドラゴンボール カード　鳥山明",
-        "price": "18020円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/4a6c6853ffc43041fd4e13a677e6dc61",
-        "isNew": false
-      },
-      {
-        "id": "26d7dae715d3d4c5",
-        "title": "​週刊少年ジャンプ 1990年 42号 スラムダンク 新連載　Shonen Jump 1990 No.42 SLAM DUNK",
-        "price": "123500円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/d882e5d158535fa019d9c072966aebd6",
-        "isNew": false
+        "url": "https://item.fril.jp/45b57f6643bdd9f7a6db39c9f3dbf552",
+        "isNew": true
       },
       {
         "id": "de312d7a52f47beb",
@@ -627,30 +603,6 @@
         "price": "8520円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
         "url": "https://item.fril.jp/6c1547e0fc30869378b26b8b254c5192",
-        "isNew": false
-      },
-      {
-        "id": "71d58028bcd10766",
-        "title": "週刊少年ジャンプ 1994年 32号 ジョジョ ドラゴンボール 魔人ブウ Jum",
-        "price": "5606円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/062725307be6b48978a76a2cffb6a245",
-        "isNew": false
-      },
-      {
-        "id": "36601a6c8f68d09d",
-        "title": "週刊少年ジャンプ 1988年47号 孫悟空の過去 サイヤ人 WSJ 1988 No47 DB Goku　ドラゴンボール　鳥山明",
-        "price": "11020円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/663cf23a07242390ae049a3a3ba9d432",
-        "isNew": false
-      },
-      {
-        "id": "10e1547ea53f9e0e",
-        "title": "週刊少年ジャンプ 1993年 45号 スラムダンク マイケル・ジョーダン 井上雄",
-        "price": "64220円",
-        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/3b384277d59a23a2eb99d5f426a52557",
         "isNew": false
       },
       {
@@ -662,11 +614,11 @@
         "isNew": false
       },
       {
-        "id": "c76559d291827965",
-        "title": "週刊少年ジャンプ 1988年32号 創刊20周年 井上雄彦　スラムダンク読切",
-        "price": "9920円",
+        "id": "32678cb61a833815",
+        "title": "​週刊少年ジャンプ 1989年31号 創刊21周年 ドラゴンボール カード　鳥山明",
+        "price": "18020円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/b096af6db7a01bd5a1f155b357922774",
+        "url": "https://item.fril.jp/4a6c6853ffc43041fd4e13a677e6dc61",
         "isNew": false
       },
       {
@@ -678,6 +630,22 @@
         "isNew": false
       },
       {
+        "id": "4476f07ee4a64501",
+        "title": "【希少・新連載号】週刊少年ジャンプ 1981年40号 キャッツ♥アイ 北条司 当時物 昭和ジャンプ 美品",
+        "price": "55800円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/0c601827bba6fc17e2e871b1f6c2205d",
+        "isNew": false
+      },
+      {
+        "id": "c76559d291827965",
+        "title": "週刊少年ジャンプ 1988年32号 創刊20周年 井上雄彦　スラムダンク読切",
+        "price": "9920円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/b096af6db7a01bd5a1f155b357922774",
+        "isNew": false
+      },
+      {
         "id": "12bc2d7c690989c0",
         "title": "DRAGON BALL ジャンプ ベストシーン TOP10 付録完備 DB Ju 鳥山明　ドラゴンボール　週刊少年ジャンプ",
         "price": "9020円",
@@ -686,11 +654,19 @@
         "isNew": false
       },
       {
-        "id": "c9f7d492bc18fe03",
-        "title": "週刊少年ジャンプ1991年30号トランクス超サイヤ人初登場DB Trunks ドラゴンボール　鳥山明",
-        "price": "24550円",
+        "id": "36601a6c8f68d09d",
+        "title": "週刊少年ジャンプ 1988年47号 孫悟空の過去 サイヤ人 WSJ 1988 No47 DB Goku　ドラゴンボール　鳥山明",
+        "price": "11020円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
-        "url": "https://item.fril.jp/c4d470438ea980824228c6c73e2ef571",
+        "url": "https://item.fril.jp/663cf23a07242390ae049a3a3ba9d432",
+        "isNew": false
+      },
+      {
+        "id": "71d58028bcd10766",
+        "title": "週刊少年ジャンプ 1994年 32号 ジョジョ ドラゴンボール 魔人ブウ Jum",
+        "price": "5606円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/062725307be6b48978a76a2cffb6a245",
         "isNew": false
       },
       {
@@ -702,22 +678,54 @@
         "isNew": false
       },
       {
+        "id": "13671e446557da9e",
+        "title": "描きたい！！を信じる少年ジャンプがどうしても伝えたいマンガの描き方/集英社/週刊少年ジャンプ編集部（単行本）",
+        "price": "617円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/d71f6f647fd39c768d5a186a0e118f2d",
+        "isNew": true
+      },
+      {
         "id": "fc9d346ca811ad2a",
         "title": "【新品未読品】週刊少年ジャンプ2022年42号ONE PIECE表紙『太陽の神 ニカ』",
         "price": "73300円",
         "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
         "url": "https://item.fril.jp/e9e48832c3dbf82ee41c7308d9196477",
         "isNew": false
+      },
+      {
+        "id": "10e1547ea53f9e0e",
+        "title": "週刊少年ジャンプ 1993年 45号 スラムダンク マイケル・ジョーダン 井上雄",
+        "price": "64220円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/3b384277d59a23a2eb99d5f426a52557",
+        "isNew": false
+      },
+      {
+        "id": "a493317e5a894835",
+        "title": "週刊少年ジャンプ 1995年52号 すごいよマサルさん 新連載 WSJ 1995",
+        "price": "4220円",
+        "image": "https://asset.fril.jp/assets/new_web/item_square_dummy-e093d031b2a9738d2115341c1aa868b76ba6b0aa513492bd0068e673e7a6d3f6.png",
+        "url": "https://item.fril.jp/27c45a0733c36a648b4237468d03e841",
+        "isNew": false
       }
     ],
-    "newCount": 4,
+    "newCount": 0,
     "error": false
   },
   "mt-mrct047xjftr": {
     "label": "WSJ Mercari 1",
     "url": "https://jp.mercari.com/search?keyword=weekly%20shonen%20jump&status=on_sale&sort=created_time&order=desc",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [
+      {
+        "id": "0ff3fb55b4174510",
+        "title": "PSA10 モンキー D ルフィ P-033 週刊少年ジャンプ",
+        "price": "",
+        "image": "https://static.mercdn.net/thumb/item/webp/m35880420946_1.jpg?1793715154",
+        "url": "https://jp.mercari.com/item/m35880420946",
+        "isNew": false
+      },
       {
         "id": "94a273f4c36d01ce",
         "title": "【シュリンク付き】週刊少年ジャンプ 2009年21号 ブリーチ表紙",
@@ -725,14 +733,6 @@
         "image": "https://static.mercdn.net/thumb/item/webp/m94279111712_1.jpg?1787820190",
         "url": "https://jp.mercari.com/item/m94279111712",
         "isNew": false
-      },
-      {
-        "id": "d4ca1c9738d4a4d3",
-        "title": "週刊少年 ジャンプ 1996年41号 ROMANCE DAWN 尾田栄一郎 原型",
-        "price": "",
-        "image": "https://static.mercdn.net/thumb/item/webp/m27081218987_1.jpg?1795523137",
-        "url": "https://jp.mercari.com/item/m27081218987",
-        "isNew": true
       },
       {
         "id": "67c0d2ce51d1edd3",
@@ -988,7 +988,7 @@
         "price": "",
         "image": "https://assets.mercari-shops-static.com/-/small/plain/2JZxEq9SzisVSsHSAxoks7.jpg@webp",
         "url": "https://jp.mercari.com/shops/product/2JZxF5J3Dg2pEYpmMRJBXN",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "04134fe3023de4f6",
@@ -996,7 +996,7 @@
         "price": "",
         "image": "https://assets.mercari-shops-static.com/-/small/plain/2JZxEqb6AsA2Z9frcfwiLF.jpg@webp",
         "url": "https://jp.mercari.com/shops/product/2JZxF5HqTe2f8QJcpgirZR",
-        "isNew": true
+        "isNew": false
       },
       {
         "id": "5042156e59397010",
@@ -1199,13 +1199,13 @@
         "isNew": true
       }
     ],
-    "newCount": 27,
+    "newCount": 0,
     "error": false
   },
   "mt-mrcnoupte5ne": {
     "label": "WSJ",
     "url": "https://auctions.yahoo.co.jp/search/search?va=shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump&x=0&y=0",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [],
     "newCount": 0,
     "error": true
@@ -1213,7 +1213,7 @@
   "mt-mrcnzaga4i4m": {
     "label": "Gear 5 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump+2022+17&x=0&y=0",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [],
     "newCount": 0,
     "error": true
@@ -1221,7 +1221,7 @@
   "mt-mrbnued87gor": {
     "label": "Gear 5 1st Cover",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump+2022+17&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=weekly+shonen+jump+2022+42&x=0&y=0",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [],
     "newCount": 0,
     "error": true
@@ -1229,7 +1229,7 @@
   "mt-mrcf258wnywj": {
     "label": "OP Chapter 100",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump+1999+52-53&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+1999+37-38&x=0&y=0",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [],
     "newCount": 0,
     "error": true
@@ -1237,7 +1237,7 @@
   "mt-mrcf0vjkb2jg": {
     "label": "Supernova 1st Apps",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump+2008+22-23&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2008+22-23&x=0&y=0",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [],
     "newCount": 0,
     "error": true
@@ -1245,7 +1245,7 @@
   "mt-mrc9fmy7u1id": {
     "label": "Chopper 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Shonen+Jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2000+23&x=0&y=0",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [],
     "newCount": 0,
     "error": true
@@ -1253,7 +1253,7 @@
   "mt-mrcnyst1umyo": {
     "label": "Kuma 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Sh%C5%8Dnen+Jump+2000+14&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Sh%C5%8Dnen+Jump+2002+28&x=0&y=0",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [],
     "newCount": 0,
     "error": true
@@ -1261,7 +1261,7 @@
   "mt-mrk2jw5rkrjo": {
     "label": "Brook 1st App",
     "url": "https://auctions.yahoo.co.jp/search/search?va=weekly+shonen+jump&is_postage_mode=1&dest_pref_code=13&b=1&n=50&s1=new&o1=d&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Shonen+Jump+2007+9&x=0&y=0",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [],
     "newCount": 0,
     "error": true
@@ -1269,7 +1269,7 @@
   "mt-mrbnz87ef3em": {
     "label": "Kagurabachi Debut",
     "url": "https://auctions.yahoo.co.jp/search/search?va=Weekly+Sh%C5%8Dnen+Jump+Issue+2023+42&is_postage_mode=1&dest_pref_code=13&b=1&n=50&user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=Weekly+Sh%C5%8Dnen+Jump+2023+42&x=0&y=0",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [],
     "newCount": 0,
     "error": true
@@ -1277,7 +1277,7 @@
   "mt-mrcf3iki8yk5": {
     "label": "Fool night",
     "url": "https://auctions.yahoo.co.jp/search/search?user_type=c&auccat=&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&p=%E3%83%95%E3%83%BC%E3%83%AB%E3%83%8A%E3%82%A4%E3%83%88&x=0&y=0",
-    "lastChecked": "2026-11-24T16:12:18.096348+00:00",
+    "lastChecked": "2026-11-25T00:41:23.206833+00:00",
     "items": [],
     "newCount": 0,
     "error": true
